@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/lymm_beer_fest_home_bg"
+        android:scaleType="centerCrop"
+        android:alpha="0.25"/>
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -64,11 +71,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Various artists will be playing throughout the festival.\n\nDelicious food will be available from local suppliers."
+                android:text="Music from a wide selection of local talent will be playing throughout the festival.\n\nDelicious food will be available from local suppliers."
                 android:theme="@style/WhiteText"
                 android:paddingBottom="24dp"/>
         </LinearLayout>
 
     </ScrollView>
 
-</LinearLayout>
+</FrameLayout>
