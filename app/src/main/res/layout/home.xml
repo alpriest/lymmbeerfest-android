@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="When"
+                android:theme="@style/YellowTitle"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Friday 6th September 2019 : Noon - 11pm\nSaturday 7th September 2019 : 6pm - 11pm"
+                android:theme="@style/WhiteText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="How much"
+                android:theme="@style/YellowTitle" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="£5 Door Entry (includes glass)\nPints are £3 each\nSoft Drinks are FREE"
+                android:theme="@style/WhiteText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Where"
+                android:theme="@style/YellowTitle" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lymm Village Hall, Pepper Street, Lymm, WA13 0JB"
+                android:theme="@style/WhiteText" />
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What else"
+                android:theme="@style/YellowTitle"
+                android:paddingTop="12dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Various artists will be playing throughout the festival.\n\nDelicious food will be available from local suppliers."
+                android:theme="@style/WhiteText"
+                android:paddingBottom="24dp"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/rtbi_logo"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The Lymm Beer Festival was the brainchild of the Lymm and District Round Table member Chris Stephens. Now in its 9th year, the Lymm Beer Fest has quickly established itself as a firm favourite with local people and has become one of the three main annual charity events organised by Lymm and District Round Table in order to raise money for local charities and community groups. The other events are the Lymm Duck Race and the Big Lymm Bonfire.\n\nThe event will take place in the Lymm Village Hall and will offer over 35 carefully selected real ales, ciders and perries. We will also be serving a fantastic selection of gins at the President’s Gin Palace. There will be live music involving a host of talented local bands and singers, and a selection of hot and cold foods, with all profits going to charity. For those abstaining or driving we will also be offering free soft drinks."
+                android:theme="@style/WhiteText"
+                android:textAlignment="textStart"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="www.lymmbeerfest.co.uk"
+                android:theme="@style/WhiteText"
+                android:id="@+id/web_link"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="beerfestival@lymmroundtable.co.uk"
+                android:theme="@style/WhiteText"
+                android:id="@+id/email_link"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
+
+
