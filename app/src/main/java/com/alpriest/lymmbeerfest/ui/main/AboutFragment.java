@@ -37,6 +37,24 @@ public class AboutFragment extends Fragment {
             }
         });
 
+        fragment.findViewById(R.id.roundtable_logo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openURL = new Intent(android.content.Intent.ACTION_VIEW);
+                openURL.setData(Uri.parse("https://www.lymmroundtable.co.uk"));
+                startActivity(openURL);
+            }
+        });
+
+        fragment.findViewById(R.id.facebook_logo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openURL = new Intent(android.content.Intent.ACTION_VIEW);
+                openURL.setData(Uri.parse("https://www.facebook.com/lymmbeerfest"));
+                startActivity(openURL);
+            }
+        });
+
         return fragment;
     }
 
