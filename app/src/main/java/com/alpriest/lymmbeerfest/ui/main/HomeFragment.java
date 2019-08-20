@@ -1,5 +1,7 @@
 package com.alpriest.lymmbeerfest.ui.main;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,11 +23,12 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class HomeFragment extends Fragment {
 
     private MapView mapView;
+    private LatLng villageHall = new LatLng(53.381098, -2.476424);
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View fragment = inflater.inflate(R.layout.home, container, false);
+        final View fragment = inflater.inflate(R.layout.home, container, false);
 
         this.mapView = fragment.findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
@@ -34,11 +37,20 @@ public class HomeFragment extends Fragment {
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap googleMap) {
-                LatLng villageHall = new LatLng(53.381098, -2.476424);
                 googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(villageHall, 17));
 
                 MarkerOptions marker = new MarkerOptions().position(villageHall).title("Lymm Village Hall");
                 googleMap.addMarker(marker);
+            }
+        });
+
+        fragment.findViewById(R.id.directions).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = String.format("https://www.google.com/maps/dir/?api=1&destination=%f,%f", villageHall.latitude, villageHall.longitude);
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
             }
         });
 
