@@ -2,13 +2,11 @@ package com.alpriest.lymmbeerfest.ui.main;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
 import com.alpriest.lymmbeerfest.R;
 import com.google.android.material.tabs.TabLayout;
-
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.alpriest.lymmbeerfest.ui.main.SectionsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 

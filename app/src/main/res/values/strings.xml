@@ -3,4 +3,16 @@
     <string name="tab_text_1">Home</string>
     <string name="tab_text_2">Drinks</string>
     <string name="tab_text_3">About</string>
+    <string name="history">The Lymm Beer Festival was the brainchild of the Lymm and District Round Table member Chris Stephens. Started in 2010, the Lymm Beer Fest has quickly established itself as a firm favourite with local people and has become one of the three main annual charity events organised by Lymm and District Round Table in order to raise money for local charities and community groups. The other events are the Lymm Duck Race and the Big Lymm Bonfire.  The event will take place in the Lymm Village Hall and will offer over 35 carefully selected real ales, ciders and perries. We will also be serving a fantastic selection of gins at the President’s Gin Palace. There will be live music involving a host of talented local bands and singers, and a selection of hot and cold foods, with all profits going to charity. For those abstaining or driving we will also be offering free soft drinks.</string>
+    <string name="website">www.lymmbeerfest.co.uk</string>
+    <string name="email">beerfestival@lymmroundtable.co.uk</string>
+    <string name="date_and_times">Friday 6th September 2019 : Noon - 11pm Saturday 7th September 2019 : 6pm - 11pm</string>
+    <string name="when">When</string>
+    <string name="how_much">How much</string>
+    <string name="prices">£5 Door Entry (includes glass) Pints are £3 each Soft Drinks are FREE</string>
+    <string name="where">Where</string>
+    <string name="address">Lymm Village Hall, Pepper Street, Lymm, WA13 0JB</string>
+    <string name="get_directions">Get directions</string>
+    <string name="what_else">What else</string>
+    <string name="additional">Music from a wide selection of local talent will be playing throughout the festival.  Delicious food will be available from local suppliers.</string>
 </resources>

@@ -20,8 +20,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class HomeFragment extends Fragment {
+import java.util.Locale;
 
+public class HomeFragment extends Fragment {
     private MapView mapView;
     private LatLng villageHall = new LatLng(53.381098, -2.476424);
 
@@ -47,7 +48,7 @@ public class HomeFragment extends Fragment {
         fragment.findViewById(R.id.directions).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = String.format("https://www.google.com/maps/dir/?api=1&destination=%f,%f", villageHall.latitude, villageHall.longitude);
+                String url = String.format(Locale.ENGLISH,"https://www.google.com/maps/dir/?api=1&destination=%f,%f", villageHall.latitude, villageHall.longitude);
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);

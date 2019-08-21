@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="The Lymm Beer Festival was the brainchild of the Lymm and District Round Table member Chris Stephens. Started in 2010, the Lymm Beer Fest has quickly established itself as a firm favourite with local people and has become one of the three main annual charity events organised by Lymm and District Round Table in order to raise money for local charities and community groups. The other events are the Lymm Duck Race and the Big Lymm Bonfire.\n\nThe event will take place in the Lymm Village Hall and will offer over 35 carefully selected real ales, ciders and perries. We will also be serving a fantastic selection of gins at the President’s Gin Palace. There will be live music involving a host of talented local bands and singers, and a selection of hot and cold foods, with all profits going to charity. For those abstaining or driving we will also be offering free soft drinks."
+                android:text="@string/history"
                 android:theme="@style/WhiteText"
                 android:textAlignment="textStart"
                 android:paddingTop="24dp"
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:layout_gravity="center_horizontal"
-                android:text="www.lymmbeerfest.co.uk"
+                android:text="@string/website"
                 android:theme="@style/YellowButton"
                 android:id="@+id/web_link"
                 android:layout_marginBottom="20dp"/>
@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:text="beerfestival@lymmroundtable.co.uk"
+                android:text="@string/email"
                 android:theme="@style/YellowButton"
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/email_link"

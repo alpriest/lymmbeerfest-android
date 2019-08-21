@@ -22,37 +22,37 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="When"
+                android:text="@string/when"
                 android:theme="@style/YellowTitle"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Friday 6th September 2019 : Noon - 11pm\nSaturday 7th September 2019 : 6pm - 11pm"
+                android:text="@string/date_and_times"
                 android:theme="@style/WhiteText" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="How much"
+                android:text="@string/how_much"
                 android:theme="@style/YellowTitle" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="£5 Door Entry (includes glass)\nPints are £3 each\nSoft Drinks are FREE"
+                android:text="@string/prices"
                 android:theme="@style/WhiteText" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Where"
+                android:text="@string/where"
                 android:theme="@style/YellowTitle" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lymm Village Hall, Pepper Street, Lymm, WA13 0JB"
+                android:text="@string/address"
                 android:theme="@style/WhiteText" />
 
 
@@ -75,7 +75,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Get directions"
+                    android:text="@string/get_directions"
                     android:theme="@style/YellowButton"
                     android:layout_gravity="center_horizontal"
                     android:textAlignment="center"
@@ -86,14 +86,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="What else"
+                android:text="@string/what_else"
                 android:theme="@style/YellowTitle"
                 android:paddingTop="12dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Music from a wide selection of local talent will be playing throughout the festival.\n\nDelicious food will be available from local suppliers."
+                android:text="@string/additional"
                 android:theme="@style/WhiteText"
                 android:paddingBottom="24dp"/>
         </LinearLayout>
