@@ -17,11 +17,6 @@
         <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDaAwDLTAnN84vwNCPuhf8fjDNfxVJiEO0" />
 
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="9d13a869ca631d152403b6fbee1d971501fd95bd"
-            />
-
         <activity
             android:name="com.alpriest.lymmbeerfest.ui.main.MainActivity"
             android:label="@string/app_name"
