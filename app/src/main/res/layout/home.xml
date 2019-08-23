@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/lymm_beer_fest_home_bg"
@@ -53,8 +53,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/address"
-                android:theme="@style/WhiteText" />
-
+                android:theme="@style/WhiteText"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -72,7 +73,7 @@
                     android:layout_marginBottom="4dp"
                     />
 
-                <TextView
+                <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/get_directions"
@@ -95,7 +96,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/additional"
                 android:theme="@style/WhiteText"
-                android:paddingBottom="24dp"/>
+                android:paddingBottom="24dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"/>
         </LinearLayout>
 
     </ScrollView>
