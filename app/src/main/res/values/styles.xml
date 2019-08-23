@@ -34,10 +34,10 @@
         <item name="android:fontFamily">@font/montserrat_regular</item>
     </style>
 
-    <style name="YellowButton" parent="android:Theme">
-        <item name="android:background">@color/colorAccent</item>
+    <style name="YellowButton">
+        <item name="android:backgroundTint">@color/colorAccent</item>
         <item name="android:textColor">@android:color/black</item>
-        <item name="android:padding">4dp</item>
+        <item name="android:padding">8dp</item>
     </style>
 
 </resources>

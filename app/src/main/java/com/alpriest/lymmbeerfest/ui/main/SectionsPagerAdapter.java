@@ -17,7 +17,7 @@ import com.alpriest.lymmbeerfest.R;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2, R.string.tab_text_3};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2, R.string.beer_selector, R.string.tab_text_3};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -33,6 +33,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             return new HomeFragment();
         } else if (position == 1) {
             return new MenuFragment();
+        } else if (position == 2) {
+            return new BeerSelectorFragment();
         }
 
         return new AboutFragment();
@@ -46,6 +48,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 }

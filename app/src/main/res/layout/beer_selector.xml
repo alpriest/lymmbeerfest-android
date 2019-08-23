@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/beer_selector_overview"
+        android:theme="@style/WhiteText"
+        android:paddingTop="24dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/find_me_a_drink"
+        android:layout_gravity="center_horizontal"
+        android:theme="@style/YellowButton"
+        android:id="@+id/spin_wheel"
+        android:layout_marginBottom="20dp"/>
+
+    <com.alpriest.lymmbeerfest.ui.main.LuckyWheel.LuckyWheel
+        android:id="@+id/lwv"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:padding="16dp"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:theme="@style/WhiteText"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/answer"
+        android:layout_marginBottom="20dp"/>
+
+</LinearLayout>

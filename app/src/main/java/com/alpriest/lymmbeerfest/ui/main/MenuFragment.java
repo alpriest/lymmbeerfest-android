@@ -25,3 +25,4 @@ public class MenuFragment extends Fragment {
         return fragment;
     }
 }
+
