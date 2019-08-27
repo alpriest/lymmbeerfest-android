@@ -159,12 +159,11 @@ final class WheelView extends View {
      * @param target target number
      */
     public void rotateWheelToTarget(final int target) {
-
-        float wheelItemCenter = 180 - getAngleOfIndexTarget(target) + (360 / mWheelItems.size()) / 2;
-        int DEFAULT_ROTATION_TIME = 2000;
-        animate().setInterpolator(new DecelerateInterpolator())
+        float wheelItemCenter = 270 - getAngleOfIndexTarget(target + 1) + ((360 / (float)mWheelItems.size()) / 2);
+        int DEFAULT_ROTATION_TIME = 3000;
+        animate().setInterpolator(new DecelerateInterpolator(2))
                 .setDuration(DEFAULT_ROTATION_TIME)
-                .rotation((360 * 7) + wheelItemCenter)
+                .rotation(360 + wheelItemCenter)
                 .setListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationStart(Animator animation) {
