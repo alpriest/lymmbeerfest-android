@@ -29,15 +29,17 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
-        if (position == 0) {
-            return new HomeFragment();
-        } else if (position == 1) {
-            return new MenuFragment();
-        } else if (position == 2) {
-            return new BeerSelectorFragment();
-        }
+        return new BeerSelectorFragment();
 
-        return new AboutFragment();
+//        if (position == 0) {
+//            return new HomeFragment();
+//        } else if (position == 1) {
+//            return new MenuFragment();
+//        } else if (position == 2) {
+//            return new BeerSelectorFragment();
+//        }
+//
+//        return new AboutFragment();
     }
 
     @Nullable

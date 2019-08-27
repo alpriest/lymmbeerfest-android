@@ -22,12 +22,14 @@ import java.util.Random;
 public class BeerSelectorFragment extends Fragment {
     private Random random = new Random();
     private LuckyWheel wheel;
-    private ArrayList<Brew> data = readData();
+    private ArrayList<Brew> data;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View fragment = inflater.inflate(R.layout.beer_selector, container, false);
+
+        data = readData();
 
         this.wheel = fragment.findViewById(R.id.lwv);
         wheel.addWheelItems(wheelItems());
@@ -36,7 +38,8 @@ public class BeerSelectorFragment extends Fragment {
             @Override
             public void onReachTarget(int target) {
                 TextView textView = fragment.findViewById(R.id.answer);
-                textView.setText(data.get(target).name);
+                Brew brew = data.get(target);
+                textView.setText("Number " + brew.number + "\n" + brew.name);
             }
         });
 
@@ -51,21 +54,14 @@ public class BeerSelectorFragment extends Fragment {
     }
 
     private ArrayList<Brew> readData() {
-        ArrayList<Brew> items = new ArrayList<>();
-
-        items.add(new Brew("1", "text 4"));
-        items.add(new Brew("1", "text 3"));
-        items.add(new Brew("1", "text 2"));
-        items.add(new Brew("1", "text 1"));
-
-        return items;
+        return new ArrayList<>(new BrewLoader(this.getActivity()).load());
     }
 
     private ArrayList<WheelItem> wheelItems() {
         ArrayList<WheelItem> result = new ArrayList<>();
 
         for (Brew brew: data) {
-            result.add(new WheelItem(Color.GRAY, brew.name));
+            result.add(new WheelItem(brew.androidColor(), brew.number));
         }
 
         return result;
@@ -75,9 +71,16 @@ public class BeerSelectorFragment extends Fragment {
 class Brew {
     String number;
     String name;
+    String colour;
 
-    Brew(String number, String name) {
+    Brew(String number, String name, String colour) {
         this.number = number;
         this.name = name;
+        this.colour = colour;
+    }
+
+    int androidColor() {
+        return Color.parseColor("#" + colour);
     }
 }
+

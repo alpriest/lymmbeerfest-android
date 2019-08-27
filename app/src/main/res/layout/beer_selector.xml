@@ -24,20 +24,23 @@
         android:id="@+id/spin_wheel"
         android:layout_marginBottom="20dp"/>
 
-    <com.alpriest.lymmbeerfest.ui.main.LuckyWheel.LuckyWheel
-        android:id="@+id/lwv"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
-        android:padding="16dp"
-        android:layout_gravity="center_horizontal" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:theme="@style/WhiteText"
+        android:textStyle="bold"
+        android:text="\n"
         android:layout_gravity="center_horizontal"
         android:id="@+id/answer"
         android:layout_marginBottom="20dp"/>
+
+    <com.alpriest.lymmbeerfest.ui.main.LuckyWheel.LuckyWheel
+        android:id="@+id/lwv"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        android:padding="16dp"
+        android:layout_marginBottom="-250dp"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
