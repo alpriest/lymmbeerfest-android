@@ -163,7 +163,7 @@ final class WheelView extends View {
         int DEFAULT_ROTATION_TIME = 1000;
         animate().setInterpolator(new DecelerateInterpolator())
                 .setDuration(DEFAULT_ROTATION_TIME)
-                .rotation((360 * 7) + wheelItemCenter)
+                .rotation((360 * 3) + wheelItemCenter)
                 .setListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationStart(Animator animation) {

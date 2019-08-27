@@ -28,7 +28,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimaryDark"
-            app:tabTextColor="@color/colorAccent"/>
+            app:tabTextColor="@color/colorAccent"
+            app:tabPaddingStart="0dp"
+            app:tabPaddingEnd="0dp"
+        />
 
     </com.google.android.material.appbar.AppBarLayout>
 
