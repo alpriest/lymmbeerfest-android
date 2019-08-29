@@ -61,7 +61,7 @@
                 android:id="@+id/facebook_logo"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:src="@drawable/facebook_like"
+                android:src="@drawable/facebook"
                 android:layout_marginBottom="20dp"
                 />
 

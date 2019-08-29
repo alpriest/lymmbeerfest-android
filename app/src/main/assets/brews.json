@@ -1,197 +1,202 @@
 [
     {
         "number": "1",
-        "name": "Red Willow - Feckless Best Bitter",
-        "colour": "8C5C35"
+        "name": "Limonero 4.5%, from Tiny Rebel",
+        "colour": "FDF686"
     },
     {
         "number": "2",
-        "name": "Mobberley Brewhouse - Revelation",
-        "colour": "16120D"
+        "name": "Hebden's Wheat 4.5%, from Little Valley",
+        "colour": "FEF787"
     },
     {
         "number": "3",
-        "name": "Stubborn Mule - Napoleon US Pale Ale",
-        "colour": "F0BE52"
+        "name": "Cascade Blonde 4.1%, from Prospect",
+        "colour": "F7CF58"
     },
     {
         "number": "4",
-        "name": "4T's - APA",
-        "colour": "FCF583"
+        "name": "Blonde Vixen 3.8%, from Wily Fox",
+        "colour": "F7CF58"
     },
     {
         "number": "5",
-        "name": "Wily Fox - Azacca",
-        "colour": "A45132"
+        "name": "Glacier 3.6%, from Beartown",
+        "colour": "F7CF58"
     },
     {
         "number": "6",
-        "name": "Red Willow - Feckless Best Bitter",
-        "colour": "8C5C35"
+        "name": "Busmans Golden 4.2%, from 4Ts",
+        "colour": "F7CF58"
     },
     {
         "number": "7",
-        "name": "Mobberley Brewhouse - Revelation",
-        "colour": "16120D"
+        "name": "Brother Rabbit 4%, from Thornbridge",
+        "colour": "F7CF58"
     },
     {
         "number": "8",
-        "name": "Stubborn Mule - Napoleon US Pale Ale",
-        "colour": "F0BE52"
+        "name": "Session Craft Beer 3.8%, from 7 Brothers",
+        "colour": "FEF787"
     },
     {
         "number": "9",
-        "name": "4T's - APA",
-        "colour": "FCF583"
+        "name": "Otter's Tears 6%, from Thornbridge",
+        "colour": "FEF787"
     },
     {
         "number": "10",
-        "name": "Wily Fox - Azacca",
-        "colour": "A45132"
+        "name": "Session Craft Beer 3.8%, from 7 Brothers",
+        "colour": "FEF787"
     },
     {
         "number": "11",
-        "name": "Red Willow - Feckless Best Bitter",
-        "colour": "8C5C35"
+        "name": "SMASH 4.2%, from 7 Brothers",
+        "colour": "FEF787"
     },
     {
         "number": "12",
-        "name": "Mobberley Brewhouse - Revelation",
-        "colour": "16120D"
+        "name": "UXB 4.4%, from Storm",
+        "colour": "FEF787"
     },
     {
         "number": "13",
-        "name": "Stubborn Mule - Napoleon US Pale Ale",
-        "colour": "F0BE52"
+        "name": "Lit 4.5%, from Beartown",
+        "colour": "FEF787"
     },
     {
         "number": "14",
-        "name": "4T's - APA",
-        "colour": "FCF583"
+        "name": "Black Ice 4.1%, from Titanic",
+        "colour": "B35738"
     },
     {
         "number": "15",
-        "name": "Wily Fox - Azacca",
-        "colour": "A45132"
+        "name": "East India Pale Ale 6%, from Dunham/Lymm",
+        "colour": "F7CF58"
     },
     {
         "number": "16",
-        "name": "Red Willow - Feckless Best Bitter",
-        "colour": "8C5C35"
+        "name": "Raindance Grapefruit IPA 4.5%, from Mobberley",
+        "colour": "FEF787"
     },
     {
         "number": "17",
-        "name": "Mobberley Brewhouse - Revelation",
-        "colour": "16120D"
+        "name": "Shameless 5.9%, from Red Willow",
+        "colour": "F2C353"
     },
     {
         "number": "18",
-        "name": "Stubborn Mule - Napoleon US Pale Ale",
-        "colour": "F0BE52"
+        "name": "Clipaty Hop 4.3%, from CoachHouse",
+        "colour": "FEF787"
     },
     {
         "number": "19",
-        "name": "4T's - APA",
-        "colour": "FCF583"
+        "name": "Warrior IPA 4%, from Wily Fox",
+        "colour": "FEF787"
     },
     {
         "number": "20",
-        "name": "Wily Fox - Azacca",
-        "colour": "A45132"
+        "name": "AM:PM 4.5%, Thornbridge",
+        "colour": "FEF787"
     },
     {
         "number": "21",
-        "name": "Red Willow - Feckless Best Bitter",
-        "colour": "8C5C35"
+        "name": "The Pokies 3.6%, from Blackjack Brewing",
+        "colour": "FEF787"
     },
     {
         "number": "22",
-        "name": "Mobberley Brewhouse - Revelation",
-        "colour": "16120D"
+        "name": "MCR 4.4%, from First Chop (Gluten Free)",
+        "colour": "FEF787"
     },
     {
         "number": "23",
-        "name": "Stubborn Mule - Napoleon US Pale Ale",
-        "colour": "F0BE52"
+        "name": "Best Bitter 3.7%, from Beartown",
+        "colour": "FEF787"
     },
     {
         "number": "24",
         "name": "4T's - APA",
-        "colour": "FCF583"
+        "colour": "FEF787"
     },
     {
         "number": "25",
-        "name": "Wily Fox - Azacca",
-        "colour": "A45132"
+        "name": "Busmans Cherry Mild 3.8%, 4Ts",
+        "colour": "C1892E"
     },
     {
         "number": "26",
-        "name": "Red Willow - Feckless Best Bitter",
-        "colour": "8C5C35"
+        "name": "1924 4%, from Mobberley",
+        "colour": "F7CF58"
     },
     {
         "number": "27",
-        "name": "Mobberley Brewhouse - Revelation",
-        "colour": "16120D"
+        "name": "First Class 3.8%, from Titanic",
+        "colour": "FEF787"
     },
     {
         "number": "28",
-        "name": "Stubborn Mule - Napoleon US Pale Ale",
-        "colour": "F0BE52"
+        "name": "Dick Turpin 4.2%, from CoachHouse",
+        "colour": "FEF787"
     },
     {
         "number": "29",
-        "name": "4T's - APA",
-        "colour": "FCF583"
+        "name": "Silk of Amnesia 4.7%, from Storm",
+        "colour": "9F4F2F"
     },
     {
         "number": "30",
-        "name": "Wily Fox - Azacca",
-        "colour": "A45132"
+        "name": "Ottowa 4.2%, from Hydes",
+        "colour": "FEF787"
     },
     {
         "number": "31",
-        "name": "Red Willow - Feckless Best Bitter",
-        "colour": "8C5C35"
+        "name": "Salford Red 4.6%, from First Chop (Gluten Free)",
+        "colour": "9F4F2F"
     },
     {
         "number": "32",
-        "name": "Mobberley Brewhouse - Revelation",
-        "colour": "16120D"
+        "name": "Inkkepers Special Reserve 4.5%, from CoachHouse",
+        "colour": "FEF787"
     },
     {
         "number": "33",
-        "name": "Stubborn Mule - Napoleon US Pale Ale",
-        "colour": "F0BE52"
+        "name": "Malted Milk 4.6%, Tatton",
+        "colour": "926137"
     },
     {
         "number": "34",
-        "name": "4T's - APA",
-        "colour": "FCF583"
-    },
-    {
-        "number": "35",
-        "name": "Wily Fox - Azacca",
-        "colour": "A45132"
-    },
-    {
-        "number": "36",
-        "name": "Red Willow - Feckless Best Bitter",
-        "colour": "8C5C35"
-    },
-    {
-        "number": "37",
-        "name": "Mobberley Brewhouse - Revelation",
+        "name": "Faithless 121 Blackberry Stout 5.2%, from Red Willow",
         "colour": "16120D"
     },
     {
+        "number": "35",
+        "name": "Creme Beerle 4.8%, from Beartown",
+        "colour": "16120D"
+    },
+    {
+        "number": "36",
+        "name": "Dark Vale 4.5%, from Little Valley",
+        "colour": "16120D"
+    },
+    {
+        "number": "37",
+        "name": "Bridgewater Blonde 4.0%, from Dunham/Lymm",
+        "colour": "FEF787"
+    },
+    {
         "number": "38",
-        "name": "Stubborn Mule - Napoleon US Pale Ale",
-        "colour": "F0BE52"
+        "name": "Who Gose There Raspberry Rhubarb Ginger 4.5%, from Stubborn Mule",
+        "colour": "FDF686"
     },
     {
         "number": "39",
-        "name": "4T's - APA",
-        "colour": "FCF583"
+        "name": "Mandarin Candidate 3.4%, from Stubborn Mule",
+        "colour": "FEF787"
+    },
+    {
+        "number": "40",
+        "name": "Krombacher Pils 4.8%, from The Wine Kitchen",
+        "colour": "F7CF58"
     }
 ]

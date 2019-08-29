@@ -7,11 +7,9 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Matrix
 import android.graphics.Paint
-import android.graphics.Path
 import android.graphics.Rect
 import android.graphics.RectF
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import android.view.animation.DecelerateInterpolator
 
@@ -46,7 +44,7 @@ internal class WheelView : View {
         archPaint!!.isDither = true
         //text paint object
         textPaint = Paint()
-        textPaint!!.color = Color.WHITE
+        textPaint!!.color = Color.BLACK
         textPaint!!.isAntiAlias = true
         textPaint!!.isDither = true
         textPaint!!.textSize = 30f
@@ -134,19 +132,15 @@ internal class WheelView : View {
      *
      * @param canvas     Canvas to draw
      * @param tempAngle  Temporary angle
-     * @param sweepAngle current index angle
      * @param text       string to show
      */
-    private fun drawText(canvas: Canvas, tempAngle: Float, sweepAngle: Float, text: String) {
-        val path = Path()
-        path.addArc(range, tempAngle, sweepAngle)
+    private fun drawText(canvas: Canvas, tempAngle: Float, text: String, textColor: Int) {
+        textPaint!!.color = textColor
 
-        val textWidth = textPaint!!.measureText(text)
-
-        val hOffset = (radius * Math.PI / mWheelItems!!.size.toDouble() / 2.0 - textWidth / 2).toInt()
-        val vOffset = radius / 2 / 3
-
-        canvas.drawTextOnPath(text, path, hOffset.toFloat(), vOffset.toFloat(), textPaint!!)
+        canvas.save()
+        canvas.rotate(tempAngle + 3.5f - 180, width / 2.0f, height / 2.0f)
+        canvas.drawText(text, 20f, height / 2.0f, textPaint!!)
+        canvas.restore()
     }
 
     /**
@@ -225,7 +219,7 @@ internal class WheelView : View {
         for (i in mWheelItems!!.indices) {
             archPaint!!.color = mWheelItems!![i].color
             canvas.drawArc(range, tempAngle, sweepAngle, true, archPaint!!)
-            drawText(canvas, tempAngle, sweepAngle, if (mWheelItems!![i].text == null) "" else mWheelItems!![i].text)
+            drawText(canvas, tempAngle, if (mWheelItems!![i].text == null) "" else mWheelItems!![i].text, mWheelItems!![i].textColor())
             tempAngle += sweepAngle
         }
 
