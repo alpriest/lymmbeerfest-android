@@ -17,8 +17,8 @@ class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) :
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> HomeFragment()
-            1 -> MenuFragment()
-            2 -> BeerSelectorFragment()
+//            1 -> MenuFragment()
+            1 -> BeerSelectorFragment()
             else -> AboutFragment()
         }
     }
@@ -28,11 +28,12 @@ class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) :
     }
 
     override fun getCount(): Int {
-        return 4
+        return 3
     }
 
     companion object {
         @StringRes
-        private val TAB_TITLES = intArrayOf(R.string.tab_text_1, R.string.tab_text_2, R.string.beer_selector, R.string.tab_text_3)
+        private val TAB_TITLES = intArrayOf(R.string.tab_text_1, R.string.beer_selector, R.string.tab_text_3)
+//        private val TAB_TITLES = intArrayOf(R.string.tab_text_1, R.string.tab_text_2, R.string.beer_selector, R.string.tab_text_3)
     }
 }
