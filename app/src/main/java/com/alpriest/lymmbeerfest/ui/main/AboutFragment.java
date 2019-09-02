@@ -51,6 +51,13 @@ public class AboutFragment extends Fragment {
             }
         });
 
+        fragment.findViewById(R.id.drinkaware_logo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchUrl("https://www.drinkaware.co.uk");
+            }
+        });
+
         return fragment;
     }
 

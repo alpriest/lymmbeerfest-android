@@ -65,6 +65,13 @@
                 android:layout_marginBottom="20dp"
                 />
 
+            <ImageView
+                android:id="@+id/drinkaware_logo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:src="@drawable/drinkaware"
+                android:layout_marginBottom="20dp"
+                />
 
         </LinearLayout>
 

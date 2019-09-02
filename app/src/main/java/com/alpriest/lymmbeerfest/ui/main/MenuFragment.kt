@@ -15,7 +15,7 @@ class MenuFragment : Fragment() {
         val fragment = inflater.inflate(R.layout.menu, container, false)
 
         val pdfView = fragment.findViewById<PDFView>(R.id.pdfv)
-        pdfView.fromAsset("lymmbeerfest-drinks-2018.pdf").load()
+        pdfView.fromAsset("lymmbeerfest-drinks-2019.pdf").load()
 
         return fragment
     }
