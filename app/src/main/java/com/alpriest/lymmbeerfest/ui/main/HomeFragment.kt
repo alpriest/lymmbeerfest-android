@@ -6,59 +6,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
-
 import com.alpriest.lymmbeerfest.R
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.MapView
-import com.google.android.gms.maps.MapsInitializer
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-
-import java.util.Locale
+import com.squareup.picasso.Picasso
+import java.util.*
 
 class HomeFragment : Fragment() {
-    private var mapView: MapView? = null
-    private val villageHall = LatLng(53.381098, -2.476424)
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val fragment = inflater.inflate(R.layout.home, container, false)
 
-        this.mapView = fragment.findViewById(R.id.mapView)
-        mapView?.onCreate(savedInstanceState)
-        MapsInitializer.initialize(context!!)
+        val mapView: ImageView = fragment.findViewById(R.id.mapView)
 
-        mapView?.getMapAsync { googleMap ->
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(villageHall, 17f))
-
-            val marker = MarkerOptions().position(villageHall).title("Lymm Village Hall")
-            googleMap.addMarker(marker)
-        }
+        val url = Uri.parse("https://maps.googleapis.com/maps/api/staticmap?center=" + 53.381098 + "," + -2.476424 + "&zoom=15&size=300x300&sensor=false&key=AIzaSyBEUMHrUP7tf28iVD9eljaheu_l-BZYnbg")
+        Picasso.get().load(url).into(mapView)
 
         fragment.findViewById<View>(R.id.directions).setOnClickListener {
-            val url = String.format(Locale.ENGLISH, "https://www.google.com/maps/dir/?api=1&destination=%f,%f", villageHall.latitude, villageHall.longitude)
+            val url = String.format(Locale.ENGLISH, "https://www.google.com/maps/dir/?api=1&destination=%f,%f", 53.381098, -2.476424)
             val i = Intent(Intent.ACTION_VIEW)
             i.data = Uri.parse(url)
             startActivity(i)
         }
 
         return fragment
-    }
-
-    override fun onPause() {
-        super.onPause()
-        mapView?.onPause()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        mapView?.onResume()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mapView?.onDestroy()
     }
 }
