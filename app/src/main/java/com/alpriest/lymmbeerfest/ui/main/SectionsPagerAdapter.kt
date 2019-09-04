@@ -18,7 +18,7 @@ class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) :
         return when (position) {
             0 -> HomeFragment()
             1 -> MenuFragment()
-            1 -> BeerSelectorFragment()
+            2 -> BeerSelectorFragment()
             else -> AboutFragment()
         }
     }
