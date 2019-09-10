@@ -1,5 +1,6 @@
 package com.alpriest.lymmbeerfest.ui.main
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -36,10 +37,11 @@ class HomeFragment(val config: Config) : Fragment() {
         return fragment
     }
 
+    @SuppressLint("SetTextI18n")
     private fun bind(config: Config, fragment: View) {
         fragment.findViewById<TextView>(R.id.whenText).setText(config.whenStr)
         fragment.findViewById<TextView>(R.id.howMuchText).setText(config.howmuch)
-        fragment.findViewById<TextView>(R.id.whatElseText).setText(music(config))
+        fragment.findViewById<TextView>(R.id.whatElseText).setText(config.food + "\n\n" + music(config))
     }
 
     private fun music(config: Config): String {
