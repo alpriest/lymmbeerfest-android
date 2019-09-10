@@ -12,13 +12,13 @@ import com.alpriest.lymmbeerfest.R
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
-class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager, val config: Config) : FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            0 -> HomeFragment()
+            0 -> HomeFragment(config)
             1 -> MenuFragment()
-            2 -> BeerSelectorFragment()
+            2 -> BeerSelectorFragment(config)
             else -> AboutFragment()
         }
     }

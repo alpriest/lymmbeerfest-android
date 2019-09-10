@@ -16,15 +16,13 @@ import com.alpriest.lymmbeerfest.ui.main.LuckyWheel.WheelItem
 import java.util.ArrayList
 import java.util.Random
 
-class BeerSelectorFragment : Fragment() {
+class BeerSelectorFragment(config: Config) : Fragment() {
     private val random = Random()
     private var wheel: LuckyWheel? = null
-    private var data: ArrayList<Brew>? = null
+    private var data = ArrayList(config.brews)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val fragment = inflater.inflate(R.layout.beer_selector, container, false)
-
-        data = readData()
 
         this.wheel = fragment.findViewById(R.id.lwv)
         wheel?.addWheelItems(wheelItems())
@@ -32,7 +30,7 @@ class BeerSelectorFragment : Fragment() {
         wheel?.setLuckyWheelReachTheTarget(object: OnLuckyWheelReachTheTarget{
             override fun onReachTarget(target: Int) {
                 val textView = fragment.findViewById<TextView>(R.id.answer)
-                val brew = data!![target]
+                val brew = data[target]
                 textView.text = "Number " + brew.number + "\n" + brew.name
                 fragment.findViewById<View>(R.id.answer).visibility = View.VISIBLE
             }
@@ -58,14 +56,10 @@ class BeerSelectorFragment : Fragment() {
         wheel?.translationY = (metrics.heightPixels / 5 * 6).toFloat()
     }
 
-    private fun readData(): ArrayList<Brew> {
-        return ArrayList(BrewLoader(this.activity!!).load()!!)
-    }
-
     private fun wheelItems(): ArrayList<WheelItem> {
         val result = ArrayList<WheelItem>()
 
-        for (brew in data!!) {
+        for (brew in data) {
             result.add(WheelItem(brew.androidColor(), brew.name))
         }
 
@@ -73,7 +67,7 @@ class BeerSelectorFragment : Fragment() {
     }
 }
 
-internal class Brew(var number: String, var name: String, private val colour: String) {
+class Brew(var number: String, var name: String, private val colour: String) {
 
     fun androidColor(): Int {
         return Color.parseColor("#$colour")

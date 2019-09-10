@@ -7,12 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.alpriest.lymmbeerfest.R
 import com.squareup.picasso.Picasso
+import java.text.SimpleDateFormat
 import java.util.*
 
-class HomeFragment : Fragment() {
+class HomeFragment(val config: Config) : Fragment() {
+    
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val fragment = inflater.inflate(R.layout.home, container, false)
 
@@ -27,7 +30,28 @@ class HomeFragment : Fragment() {
             i.data = Uri.parse(url)
             startActivity(i)
         }
+        
+        bind(config, fragment)
 
         return fragment
+    }
+
+    private fun bind(config: Config, fragment: View) {
+        fragment.findViewById<TextView>(R.id.whenText).setText(config.whenStr)
+        fragment.findViewById<TextView>(R.id.howMuchText).setText(config.howmuch)
+        fragment.findViewById<TextView>(R.id.whatElseText).setText(music(config))
+    }
+
+    private fun music(config: Config): String {
+        return config.music
+                .sortedBy { it.start }
+                .map { formattedDateTime(it.start) + " - " + it.name }
+                .joinToString(separator = "\n")
+    }
+
+    private fun formattedDateTime(date: Date): String {
+        val pattern = "EEEE HH:mm"
+        val simpleDateFormat = SimpleDateFormat(pattern)
+        return simpleDateFormat.format(date)
     }
 }
