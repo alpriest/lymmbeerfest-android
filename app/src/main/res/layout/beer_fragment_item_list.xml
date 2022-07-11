@@ -17,8 +17,6 @@
         android:name="com.alpriest.lymmbeerfest.ui.main.BeersFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
         tools:context=".ui.main.BeersFragment"
         tools:listitem="@layout/beer_fragment_item"

@@ -23,9 +23,9 @@ class MyBeersRecyclerViewAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
         holder.numberView.text = item.number
-        holder.titleView.text = item.brewery + ", " + item.name + " %.1f%%".format(item.abv)
+        holder.titleView.text = item.brewery + ", " + item.name + " (%.1f%%".format(item.abv) + ")"
         holder.descriptionView.text = item.description
-        holder.sponsorView.text = "Sponsored by " + item.sponsor
+        holder.sponsorView.text = "Sponsored by " + item.sponsor + " "
     }
 
     override fun getItemCount(): Int = values.size

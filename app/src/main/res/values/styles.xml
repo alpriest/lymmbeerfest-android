@@ -34,6 +34,15 @@
         <item name="android:fontFamily">@font/montserrat_regular</item>
     </style>
 
+    <style name="WhiteBoldText" parent="android:Theme">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="SponsorText" parent="android:Theme">
         <item name="android:textColor">@color/gold</item>
         <item name="android:textSize">12dp</item>

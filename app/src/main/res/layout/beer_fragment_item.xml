@@ -11,9 +11,8 @@
         android:layout_marginStart="@dimen/text_margin"
         android:layout_marginTop="@dimen/text_margin"
         android:layout_marginEnd="0dp"
-        android:textStyle="bold"
         android:text="35"
-        android:theme="@style/WhiteText" />
+        android:theme="@style/WhiteBoldText" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -30,8 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Big Brewery, Sample Brew, 4.5%"
-            android:textStyle="bold"
-            android:theme="@style/WhiteText" />
+            android:theme="@style/WhiteBoldText" />
 
         <TextView
             android:id="@+id/description"
@@ -39,7 +37,8 @@
             android:layout_height="wrap_content"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh."
             android:textAlignment="textStart"
-            android:theme="@style/WhiteText" />
+            android:theme="@style/WhiteText"
+            android:paddingBottom="2dp"/>
 
         <TextView
             android:id="@+id/sponsor"

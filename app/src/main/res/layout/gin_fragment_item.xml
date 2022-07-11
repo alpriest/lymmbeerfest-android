@@ -2,13 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:textAlignment="textStart">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:theme="@style/WhiteBoldText"
+        android:paddingBottom="0dp"
+        android:textAlignment="textStart"
+        />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:theme="@style/WhiteText"
-        android:textAlignment="center"/>
+        android:textAlignment="textStart"
+        />
 
 </LinearLayout>

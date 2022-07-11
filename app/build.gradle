@@ -12,9 +12,9 @@ android {
         applicationId "com.alpriest.lymmbeerfest"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 19
+        versionCode 20
 
-        versionName "1.7.1"
+        versionName "1.7.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

@@ -20,18 +20,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center_horizontal">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/text_margin"
-                android:text="Lymm Ladies Circle have had great fun choosing and sampling the gins for this year’s ‘Gin Palace’. Most of them have their roots firmly planted in Cheshire and Manchester so dive in and give them a try. We have a variety of mixers and garnishes to complement each gin. Check out the bar for a few special gin appearances too."
-                android:theme="@style/WhiteText"
-                android:textAlignment="textStart"
-                />
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_horizontal_margin"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.7"
+                    android:src="@drawable/gin_palace_logo"
+                    android:maxWidth="100dp"
+                    android:adjustViewBounds="true"
+                    android:paddingRight="8dp"
+                    />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lymm Ladies Circle have had great fun choosing and sampling the gins for this year’s ‘Gin Palace’. Most of them have their roots firmly planted in Cheshire and Manchester so dive in and give them a try. We have a variety of mixers and garnishes to complement each gin. Check out the bar for a few special gin appearances too."
+                    android:theme="@style/WhiteText"
+                    android:textAlignment="textStart"
+                    />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -52,6 +69,7 @@
                 android:layout_marginRight="16dp"
                 app:layoutManager="LinearLayoutManager"
                 android:name="com.alpriest.lymmbeerfest.ui.main.GinsFragment"
+                android:nestedScrollingEnabled="false"
                 />
 
             <TextView
@@ -73,6 +91,7 @@
                 android:layout_marginRight="16dp"
                 app:layoutManager="LinearLayoutManager"
                 android:name="com.alpriest.lymmbeerfest.ui.main.GinsFragment"
+                android:nestedScrollingEnabled="false"
                 />
 
             <TextView
@@ -94,6 +113,7 @@
                 android:layout_marginRight="16dp"
                 app:layoutManager="LinearLayoutManager"
                 android:name="com.alpriest.lymmbeerfest.ui.main.GinsFragment"
+                android:nestedScrollingEnabled="false"
                 />
 
             <TextView
@@ -115,6 +135,7 @@
                 android:layout_marginRight="16dp"
                 app:layoutManager="LinearLayoutManager"
                 android:name="com.alpriest.lymmbeerfest.ui.main.GinsFragment"
+                android:nestedScrollingEnabled="false"
                 />
 
             <TextView
@@ -136,13 +157,14 @@
                 android:layout_marginRight="16dp"
                 app:layoutManager="LinearLayoutManager"
                 android:name="com.alpriest.lymmbeerfest.ui.main.GinsFragment"
+                android:nestedScrollingEnabled="false"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/text_margin"
-                android:text="A HUGE thank you to Fikret at Lymm &amp; Tonic for sponsoring our Gin Palace this year."
+                android:text="A HUGE thank you to Fikret at Lymm &amp; Tonic for sponsoring our Gin Palace this year and sharing his expert help and advice. "
                 android:theme="@style/WhiteText"
                 android:textAlignment="textStart"
                 android:paddingBottom="20dp"
