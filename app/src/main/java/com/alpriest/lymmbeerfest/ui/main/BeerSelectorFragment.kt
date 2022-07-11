@@ -67,7 +67,7 @@ class BeerSelectorFragment(config: Config) : Fragment() {
     }
 }
 
-class Brew(var number: String, var name: String, private val colour: String) {
+class Brew(var number: String, var name: String, var brewery: String, var description: String, var sponsor: String, var abv: Double, private val colour: String) {
 
     fun androidColor(): Int {
         return Color.parseColor("#$colour")

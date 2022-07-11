@@ -34,6 +34,13 @@
         <item name="android:fontFamily">@font/montserrat_regular</item>
     </style>
 
+    <style name="SponsorText" parent="android:Theme">
+        <item name="android:textColor">@color/gold</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textAlignment">viewEnd</item>
+    </style>
+
     <style name="YellowButton">
         <item name="android:backgroundTint">@color/colorAccent</item>
         <item name="android:textColor">@android:color/black</item>

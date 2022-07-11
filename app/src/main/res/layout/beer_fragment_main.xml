@@ -19,4 +19,11 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/lymm_beer_fest_home_bg"
+        android:scaleType="centerCrop"
+        android:alpha="0.25"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
