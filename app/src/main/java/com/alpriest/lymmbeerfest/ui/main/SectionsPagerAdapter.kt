@@ -19,7 +19,7 @@ class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager, v
             0 -> HomeFragment(config)
             1 -> BeersFragment(config)
             2 -> BeerSelectorFragment(config)
-            3 -> GinsFragment()
+            3 -> GinsFragment(config)
             else -> AboutFragment()
         }
     }

@@ -1,90 +1,101 @@
 package com.alpriest.lymmbeerfest.ui.main
 
+import android.annotation.SuppressLint
+import android.content.res.Resources
+import android.graphics.Typeface
+import android.icu.lang.UCharacter
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.FrameLayout.LayoutParams.MATCH_PARENT
+import android.widget.FrameLayout.LayoutParams.WRAP_CONTENT
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alpriest.lymmbeerfest.R
 
-class GinsFragment : Fragment() {
+class GinsFragment(val config: Config) : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val data = arrayOf<Gin>(
-            Gin("fruity", "Bloom", "Passionfruit & Vanilla", "A combination of tangy passion fruit paired with creamy vanilla blossom.", 40.0),
-            Gin("fruity", "Grenalls", "Blueberry", "Sweet but slightly tart with a subtle hint of floral.", 40.0),
-            Gin("fruity", "Kuro", "Natsu Peach Gin", "Fruity & sweet, with a robust gin core.", 40.0),
-            Gin("fruity", "Lymm Gin", "Blood Orange", "A refreshing summer drink to revive your senses.", 40.0),
-            Gin("fruity", "Lymm Gin", "Raspberry", "A palate of raspberry at the front with Juniper and spices at the back", 40.0),
-            Gin("fruity", "The Lakes Gin", "Pink Grapefruit Gin", "Zesty pink grapefruit vigour. ", 46.0),
-            Gin("fruity", "Three Wrens", "Exquisite Citrus Gin", "Delicious exotic aroma with a dry refreshing taste.", 40.0),
-            Gin("fruity", "Three Wrens", "Key Lime Pie", "Lemon thyme & dandelion with fresh lime zest.", 40.0),
-            Gin("fruity", "Three Wrens", "Rhubarb Gin", "Distilled with juniper, cassia, cinnamon, sweet orange peel and fresh ginger.", 40.0),
-            Gin("fruity", "Zymurgorium", "Sloe Gin", "A spicy Sloe Gin with a rich flavour of spice & plum.", 40.0),
-
-            Gin("classic", "Capesthorne Cheshire", "Dry Gin", "Classic gin packed full of flavour.", 40.0),
-            Gin("classic", "Kuro", "Alpine Dry Gin", "Japan-inspired gin crafted in Cheshire. ", 43.0),
-            Gin("classic", "Lymm Gin", "London Dry Gin", "Packed with botanicals to tantalise your taste buds.", 40.0),
-            Gin("classic", "The Lakes Gin", "Classic English Gin", "A mix of over ten carefully selected botanicals native to the Lake District National Park. ", 46.0),
-            Gin("classic", "Three Wrens", "Legends Strength", "Legends strength is only for the brave!", 57.0),
-            Gin("classic", "Three Wrens", "Original Dry Gin", "Juniper is the heart and soul of this gin.", 42.0),
-
-            Gin("floral_herby", "Bloom", "Jasmine & Rose", "Inspired by summer days spent in the garden,", 40.0),
-            Gin("floral_herby", "Kuro", "Haru Blossom", "A pink gin flavoured with fleeting springtime cherry blossoms.", 40.0),
-            Gin("floral_herby", "Manchester Gin", "Wild Spirit", "A savoury gin with complex herbaceous notes.", 40.0),
-            Gin("floral_herby", "Meadows Gin (Urmston)", "Classic", "One sip inspires the essence of the meadow.", 42.0),
-            Gin("floral_herby", "Ophir", "Oriental Spiced London Dry", "Unique spiced gin – some like it hot!", 40.0),
-            Gin("floral_herby", "Three Wrens", "Bison Grass Gin", "Unique gin – first of its kind. Summer hay, lemongrass & vanilla", 41.5),
-            Gin("floral_herby", "Three Wrens", "Lemon Verbena & Rose Gin", "Delightful floral tones with a herbaceous finish.", 42.0),
-
-            Gin("liqueurs", "Cheshire Grins", "Espresso Martini", "A unique cocktail gin experience", 20.0),
-            Gin("liqueurs", "Lakes Gins", "Elderflower", "Refreshingly floral and vibrant. ", 25.0),
-            Gin("liqueurs", "No name (Manchester)", "Dandelion and Burdock", "A sophisticated liqueur brings new life into a beloved childhood classic.", 18.0),
-            Gin("liqueurs", "Riverside", "Cucumber", "Delicately aromatic – ultimately refreshing.", 20.0),
-            Gin("liqueurs", "Riverside", "Passionfruit", "A summer liqueur infused with fresh passionfruit.", 20.0),
-            Gin("liqueurs", "Zymurgorium", "Flamingo Electric Blue & Scottish Raspberry", "Lay back and let the Flamingo house band rock your taste buds!", 20.0),
-            Gin("liqueurs", "Zymurgorium", "Pink Pornstar Martini", "Notes of light berry & pure passion fruit juice.", 20.0),
-
-            Gin("alcohol_free", "Clean Co", "Classic Gin", "Aromatic botanical ingredients create the finished non-alcoholic spirit.", 0.0),
-            Gin("alcohol_free", "Clean Co", "Rhubarb Gin", "Notes of rhubarb, juniper, & citrus with a hint of coriander, mint & cinnamon.", 0.0),
-            Gin("alcohol_free", "Seedlip", "Non-alcoholic Gin", "What to drink when you’re not drinking.", 0.0)
-        )
-
         val view = inflater.inflate(R.layout.fragment_gins, container, false)
 
-        val fruity_recycler: RecyclerView = view.findViewById(R.id.fruity)
-        with(fruity_recycler) {
-            layoutManager = LinearLayoutManager(context)
-            adapter = MyGinsRecyclerViewAdapter(data.filter { it.type == "fruity" })
-        }
+        val headings = config.gins.map { it.type }.distinct()
 
-        val traditional_recycler: RecyclerView = view.findViewById(R.id.traditional)
-        with(traditional_recycler) {
-            layoutManager = LinearLayoutManager(context)
-            adapter = MyGinsRecyclerViewAdapter(data.filter { it.type == "classic" })
-        }
+//        val recycler: RecyclerView = view.findViewById(R.id.gin_type_list)
+//        with(recycler) {
+//            layoutManager = LinearLayoutManager(context)
+//            adapter = GinTypeListRecyclerViewAdapter(config.gins)
+//        }
 
-        val floral_herby_recycler: RecyclerView = view.findViewById(R.id.floral_herby)
-        with(floral_herby_recycler) {
-            layoutManager = LinearLayoutManager(context)
-            adapter = MyGinsRecyclerViewAdapter(data.filter { it.type == "floral_herby" })
-        }
+        val gin_list: LinearLayout = view.findViewById(R.id.gin_type_list)
 
-        val liquers_recycler: RecyclerView = view.findViewById(R.id.liquers)
-        with(liquers_recycler) {
-            layoutManager = LinearLayoutManager(context)
-            adapter = MyGinsRecyclerViewAdapter(data.filter { it.type == "liqueurs" })
-        }
+        context?.let { ctx ->
+            headings.forEach { header ->
+                val headerView = TextView(ctx)
+                with(headerView) {
+                    text = header
+                    setTextColor(ctx.getColor(R.color.gold))
+                    typeface = ResourcesCompat.getFont(ctx, R.font.tangerine_bold)
+                    textSize = 32f
+                    gravity = Gravity.CENTER
+                }
 
-        val alcohol_free_recycler: RecyclerView = view.findViewById(R.id.alcohol_free)
-        with(alcohol_free_recycler) {
-            layoutManager = LinearLayoutManager(context)
-            adapter = MyGinsRecyclerViewAdapter(data.filter { it.type == "alcohol_free" })
+                val recycler = RecyclerView(ctx)
+                recycler.isNestedScrollingEnabled = false
+//                recycler.layoutParams = FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT)
+
+//                android:layout_width="match_parent"
+//                android:layout_height="match_parent"
+//                android:layout_marginLeft="16dp"
+//                android:layout_marginRight="16dp"
+//                app:layoutManager="LinearLayoutManager"
+//                android:name="com.alpriest.lymmbeerfest.ui.main.GinsFragment"
+
+                recycler.layoutManager = LinearLayoutManager(context)
+                recycler.adapter = MyGinsRecyclerViewAdapter(config.gins.filter { it.type == header })
+
+                gin_list.addView(headerView)
+                gin_list.addView(recycler)
+            }
         }
+//
+//        val fruity_recycler: RecyclerView = view.findViewById(R.id.fruity)
+//        with(fruity_recycler) {
+//            layoutManager = LinearLayoutManager(context)
+//            adapter = MyGinsRecyclerViewAdapter(config.gins.filter { it.type == "fruity" })
+//        }
+//
+//        val traditional_recycler: RecyclerView = view.findViewById(R.id.traditional)
+//        with(traditional_recycler) {
+//            layoutManager = LinearLayoutManager(context)
+//            adapter = MyGinsRecyclerViewAdapter(config.gins.filter { it.type == "classic" })
+//        }
+//
+//        val floral_herby_recycler: RecyclerView = view.findViewById(R.id.floral_herby)
+//        with(floral_herby_recycler) {
+//            layoutManager = LinearLayoutManager(context)
+//            adapter = MyGinsRecyclerViewAdapter(config.gins.filter { it.type == "floral_herby" })
+//        }
+//
+//        val liquers_recycler: RecyclerView = view.findViewById(R.id.liquers)
+//        with(liquers_recycler) {
+//            layoutManager = LinearLayoutManager(context)
+//            adapter = MyGinsRecyclerViewAdapter(config.gins.filter { it.type == "liqueurs" })
+//        }
+//
+//        val alcohol_free_recycler: RecyclerView = view.findViewById(R.id.alcohol_free)
+//        with(alcohol_free_recycler) {
+//            layoutManager = LinearLayoutManager(context)
+//            adapter = MyGinsRecyclerViewAdapter(config.gins.filter { it.type == "alcohol_free" })
+//        }
 
         return view
     }

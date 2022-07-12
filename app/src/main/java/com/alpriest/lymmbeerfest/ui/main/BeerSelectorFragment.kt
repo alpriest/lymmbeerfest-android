@@ -31,8 +31,16 @@ class BeerSelectorFragment(config: Config) : Fragment() {
             override fun onReachTarget(target: Int) {
                 val textView = fragment.findViewById<TextView>(R.id.answer)
                 val brew = data[target]
-                textView.text = "Number " + brew.number + "\n" + brew.name
-                fragment.findViewById<View>(R.id.answer).visibility = View.VISIBLE
+                textView.text = "Number " + brew.number + "\n" + brew.brewery + ", " + brew.name
+                textView.visibility = View.VISIBLE
+
+                val sponsorText = fragment.findViewById<TextView>(R.id.answer_sponsor)
+                if (brew.sponsor != "") {
+                    sponsorText.text = "Sponsored by " + brew.sponsor
+                    sponsorText.visibility = View.VISIBLE
+                } else {
+                    sponsorText.visibility = View.INVISIBLE
+                }
             }
         })
 

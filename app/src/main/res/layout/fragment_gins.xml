@@ -32,7 +32,6 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:alpha="0.7"
                     android:src="@drawable/gin_palace_logo"
                     android:maxWidth="100dp"
                     android:adjustViewBounds="true"
@@ -50,125 +49,15 @@
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/text_margin"
-                android:text="Fruity gins"
-                android:theme="@style/YellowTitle"
-                android:textAlignment="center"
-                />
-
-            <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/fruity"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                app:layoutManager="LinearLayoutManager"
-                android:name="com.alpriest.lymmbeerfest.ui.main.GinsFragment"
-                android:nestedScrollingEnabled="false"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/gin_type_list"
+                android:orientation="vertical"
                 android:layout_margin="@dimen/text_margin"
-                android:text="Traditional gins"
-                android:theme="@style/YellowTitle"
-                android:textAlignment="center"
-                />
+                >
 
-            <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/traditional"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                app:layoutManager="LinearLayoutManager"
-                android:name="com.alpriest.lymmbeerfest.ui.main.GinsFragment"
-                android:nestedScrollingEnabled="false"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/text_margin"
-                android:text="Floral / Herby gins"
-                android:theme="@style/YellowTitle"
-                android:textAlignment="center"
-                />
-
-            <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/floral_herby"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                app:layoutManager="LinearLayoutManager"
-                android:name="com.alpriest.lymmbeerfest.ui.main.GinsFragment"
-                android:nestedScrollingEnabled="false"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/text_margin"
-                android:text="Gin liquers (if you have a sweet tooth)"
-                android:theme="@style/YellowTitle"
-                android:textAlignment="center"
-                />
-
-            <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/liquers"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                app:layoutManager="LinearLayoutManager"
-                android:name="com.alpriest.lymmbeerfest.ui.main.GinsFragment"
-                android:nestedScrollingEnabled="false"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/text_margin"
-                android:text="Alcohol free"
-                android:theme="@style/YellowTitle"
-                android:textAlignment="center"
-                />
-
-            <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/alcohol_free"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                app:layoutManager="LinearLayoutManager"
-                android:name="com.alpriest.lymmbeerfest.ui.main.GinsFragment"
-                android:nestedScrollingEnabled="false"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/text_margin"
-                android:text="A HUGE thank you to Fikret at Lymm &amp; Tonic for sponsoring our Gin Palace this year and sharing his expert help and advice. "
-                android:theme="@style/WhiteText"
-                android:textAlignment="textStart"
-                android:paddingBottom="20dp"
-                />
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

@@ -30,31 +30,569 @@
     }],
     "food": "Food available from Lymm Spice Lounge",
     "brews": [{
+        "number": "0",
+        "name": "Blonde",
+        "description": "A clean tasting, smooth pale ale with a fine New World Citrus hop aroma",
+        "brewery": "Tatton",
+        "colour": "FEFA96",
+        "abv": 4.0,
+        "sponsor": "Airspace Aviation Solutions"
+    },
+        {
             "number": "1",
-            "name": "Sample Brew",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh.",
-            "brewery": "Big Brewery",
-            "colour": "FEFA96",
-            "abv": 4.5,
-            "sponsor": "Great Company 1"
+            "name": "Bollington Blonde",
+            "description": "A light and refreshing blonde, perfect for those summer days",
+            "brewery": "Dunham Massey",
+            "colour": "F7D961",
+            "abv": 4.0,
+            "sponsor": "Airspace Aviation Solutions"
         },
         {
             "number": "2",
-            "name": "Sample Brew",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh.",
-            "brewery": "Little Brewery",
-            "colour": "F7D961",
-            "abv": 3.5,
-            "sponsor": "Great Company 2"
+            "name": "Duerr's Honey Blossom",
+            "description": "Light, refreshing and bitter-sweet, made with lashings of Duerr's Blossom Honey",
+            "brewery": "Dunham Massey",
+            "colour": "FDF98D",
+            "abv": 4.3,
+            "sponsor": "TLN Consulting Ltd"
         },
         {
             "number": "3",
-            "name": "Sample Brew",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh.",
-            "brewery": "Cardboard Brewery",
+            "name": "Hoppiness",
+            "description": "Blonde ale, single hopped with Citra for big fruit flavours of grapefruit and lime",
+            "brewery": "Happy Valley",
             "colour": "FDF98D",
-            "abv": 2.5,
-            "sponsor": "Great Company 3"
+            "abv": 4.3,
+            "sponsor": "Site Project Services"
+        },
+        {
+            "number": "4",
+            "name": "Elvis Peachley",
+            "description": "Sweet, fruity and refreshing pale ale with a real peachy punch",
+            "brewery": "4T's",
+            "colour": "FDF98D",
+            "abv": 4.6,
+            "sponsor": "Skyline"
+        },
+        {
+            "number": "5",
+            "name": "Wired NEPA",
+            "description": "NEPA, hopped with Sabro bringing you a smooth mouthful of citrus, tropical fruit & stone fruit",
+            "brewery": "4T's",
+            "colour": "FDF98D",
+            "abv": 4.5,
+            "sponsor": "Cheshire Creative"
+        },
+        {
+            "number": "6",
+            "name": "Kahuna",
+            "description": "Light bodied pale ale with a dry peachy grapefruit flavour",
+            "brewery": "Beartown",
+            "colour": "FDF98D",
+            "abv": 4.5,
+            "sponsor": "Evolution Recruitment Solutions"
+        },
+        {
+            "number": "7",
+            "name": "Literate",
+            "description": "Floral scented golden pale ale packed with flavours of summer fruits and lemon",
+            "brewery": "Beartown",
+            "colour": "FDF98D",
+            "abv": 4.5,
+            "sponsor": "Unify"
+        },
+        {
+            "number": "8",
+            "name": "Darcey's Pale",
+            "description": "Super light, straw coloured, delicately hopped summer session pale ale",
+            "brewery": "Blackjack",
+            "colour": "FDF98D",
+            "abv": 3.5,
+            "sponsor": "Lymm Radio"
+        },
+        {
+            "number": "9",
+            "name": "Chinook and Grapefruit",
+            "description": "Fresh grapefruit zest and juice pair perfectly with punchy Chinook hops to make this pale ale",
+            "brewery": "Bollington",
+            "colour": "FDF98D",
+            "abv": 3.6,
+            "sponsor": "Dunham Press Cider"
+        },
+        {
+            "number": "10",
+            "name": "Jam",
+            "description": "Golden US style session IPA with heaps of mango flavour",
+            "brewery": "First Chop",
+            "colour": "FDF98D",
+            "abv": 3.6,
+            "sponsor": "Grappenhall Kitchen Company"
+        },
+        {
+            "number": "11",
+            "name": "Cosmati",
+            "description": "Single hopped using Mosaic American hops, delivering flavours of blueberry, citrus and tropical fruit",
+            "brewery": "Hophurst",
+            "colour": "FDF98D",
+            "abv": 4.2,
+            "sponsor": "Simply Waste Solutions"
+        },
+        {
+            "number": "12",
+            "name": "Quench",
+            "description": "Great pale ale with flavours of tropical fruits and citrus",
+            "brewery": "Hophurst",
+            "colour": "FDF98D",
+            "abv": 3.8,
+            "sponsor": "Eden Building Design"
+        },
+        {
+            "number": "13",
+            "name": "Chinook",
+            "description": "Delightful single hopped pale ale with smooth, fresh citrus flavour",
+            "brewery": "Mobberley",
+            "colour": "FDF98D",
+            "abv": 3.8,
+            "sponsor": "Lymm 41 Active"
+        },
+        {
+            "number": "14",
+            "name": "Sidekick",
+            "description": "Nice Citra pale ale, Golden in colour, crisp, light and citrusy - Perfect for summer",
+            "brewery": "Mobberley",
+            "colour": "FDF98D",
+            "abv": 4.2,
+            "sponsor": "E&L Cleaning"
+        },
+        {
+            "number": "15",
+            "name": "Project Graham",
+            "description": "Modern hoppy small pale with notes of peach, grapefruit and spice",
+            "brewery": "Pomona Island",
+            "colour": "FDF98D",
+            "abv": 3.3,
+            "sponsor": "The MVMT Room"
+        },
+        {
+            "number": "16",
+            "name": "Headless",
+            "description": "Refreshingly floral pale ale with an orange-led bitterness and a light, straw-hued colour",
+            "brewery": "Red Willow",
+            "colour": "FDF98D",
+            "abv": 3.9,
+            "sponsor": "The MVMT Room"
+        },
+        {
+            "number": "17",
+            "name": "Hoppy Pale",
+            "description": "Thirst quenching session pale ale with serious citrus chops",
+            "brewery": "Seven Bro7thers",
+            "colour": "FDF98D",
+            "abv": 3.8,
+            "sponsor": "CIE Solutions"
+        },
+        {
+            "number": "18",
+            "name": "Summer Breeze",
+            "description": "Zestful, light, refreshing beer with a hint of summer fruits",
+            "brewery": "Storm",
+            "colour": "FDF98D",
+            "abv": 3.8,
+            "sponsor": "AK Teaching"
+        },
+        {
+            "number": "19",
+            "name": "Lemon Grab",
+            "description": "A smooth-drinking, zesty citrus hopped session IPA with punchy lemon zest",
+            "brewery": "Tatton",
+            "colour": "FDF98D",
+            "abv": 4.5,
+            "sponsor": ""
+        },
+        {
+            "number": "20",
+            "name": "Crackendale",
+            "description": "Crackendale explodes with a fantastic tropical fruit aroma, giving way to guava and ripe citrus",
+            "brewery": "Thornbridge",
+            "colour": "FDF98D",
+            "abv": 5.2,
+            "sponsor": ""
+        },
+        {
+            "number": "21",
+            "name": "Kipling",
+            "description": "Single malt, single hop pale ale with a grapefruit nose, followed by passionfruit and mango flavours",
+            "brewery": "Thornbridge",
+            "colour": "FDF98D",
+            "abv": 5.2,
+            "sponsor": ""
+        },
+        {
+            "number": "22",
+            "name": "Sonoma",
+            "description": "A refreshing, sessionable, hazy pale ale with hints of mandarin & grapefruit",
+            "brewery": "Track",
+            "colour": "FDF98D",
+            "abv": 3.8,
+            "sponsor": "Dexter & Jones"
+        },
+        {
+            "number": "23",
+            "name": "Come & Go",
+            "description": "A single hopped pale ale, brewed using Simcoe. Expect notes of berry, apricot & passion fruit",
+            "brewery": "Twisted Wheel",
+            "colour": "FDF98D",
+            "abv": 4.0,
+            "sponsor": ""
+        },
+        {
+            "number": "24",
+            "name": "IPA",
+            "description": "An easy drinking, clear, crisp & clean IPA",
+            "brewery": "Mobberley",
+            "colour": "FDF98D",
+            "abv": 5.2,
+            "sponsor": ""
+        },
+        {
+            "number": "25",
+            "name": "Weightless",
+            "description": "A balanced session IPA with grapefruit and mango flavours",
+            "brewery": "Red Willow",
+            "colour": "FDF98D",
+            "abv": 4.2,
+            "sponsor": ""
+        },
+        {
+            "number": "26",
+            "name": "Lazy Haze",
+            "description": "A light, refreshing summer ale with subtle honey undertones",
+            "brewery": "Tatton",
+            "colour": "FDF98D",
+            "abv": 3.7,
+            "sponsor": ""
+        },
+        {
+            "number": "27",
+            "name": "Jaipur",
+            "description": "Well crafted IPA, with fantastic flavours of grapefruit, lemon and tropical fruits",
+            "brewery": "Thornbridge",
+            "colour": "FDF98D",
+            "abv": 5.9,
+            "sponsor": "Golden Fleece"
+        },
+        {
+            "number": "28",
+            "name": "Speed Wobble",
+            "description": "Packed with Citra Cryo showcasing subtle bursts of passion fruit, mango, citrus & pithy grapefruit",
+            "brewery": "Twisted Wheel",
+            "colour": "FDF98D",
+            "abv": 4.7,
+            "sponsor": ""
+        },
+        {
+            "number": "29",
+            "name": "Wreckless",
+            "description": "A well balanced pale ale with citra and amarillo hops providing a tropical fruit taste with a clean finish",
+            "brewery": "Red Willow",
+            "colour": "FDF98D",
+            "abv": 4.8,
+            "sponsor": ""
+        },
+        {
+            "number": "30",
+            "name": "Blueberry",
+            "description": "A smooth pale straw coloured beer, slightly sweet on first taste with a clean, exciting taste of blueberries",
+            "brewery": "Coach House",
+            "colour": "FDF98D",
+            "abv": 5.0,
+            "sponsor": ""
+        },
+        {
+            "number": "31",
+            "name": "Bosley Cloud",
+            "description": "Superb golden ale with an aromatic explosion of fruity flavours",
+            "brewery": "Storm",
+            "colour": "FDF98D",
+            "abv": 4.1,
+            "sponsor": ""
+        },
+        {
+            "number": "32",
+            "name": "Chocolate Cherry Mild",
+            "description": "Award winning speciality mild that has all the class of Dunham Dark with a dry hint of cherry",
+            "brewery": "Dunham",
+            "colour": "FDF98D",
+            "abv": 3.8,
+            "sponsor": ""
+        },
+        {
+            "number": "33",
+            "name": "Salford Red",
+            "description": "Rich spicy red ale... fruity and spicy with big hop flavours and pleasant lingering bitterness",
+            "brewery": "First Chop",
+            "colour": "FDF98D",
+            "abv": 4.6,
+            "sponsor": "Robert Lizar"
+        },
+        {
+            "number": "34",
+            "name": "Summers Porter",
+            "description": "A bright, zesty porter with hints of cherries and chocolate",
+            "brewery": "Blackjack",
+            "colour": "FDF98D",
+            "abv": 5.0,
+            "sponsor": ""
+        },
+        {
+            "number": "35",
+            "name": "Crème Bearlee",
+            "description": "A luscious dark & sweet stout. Roasty, toasty notes of dark malts, madagascan vanilla and molasses",
+            "brewery": "Beartown",
+            "colour": "FDF98D",
+            "abv": 4.8,
+            "sponsor": ""
+        },
+        {
+            "number": "36",
+            "name": "Concept 40",
+            "description": "A bright, zesty porter with hints of cherries and chocolate",
+            "brewery": "Mobberley",
+            "colour": "FDF98D",
+            "abv": 5.0,
+            "sponsor": ""
+        }
+    ],
+    "gins": [{
+        "type": "fruity",
+        "distiller": "Bloom",
+        "name": "Passionfruit & Vanilla",
+        "description": "A combination of tangy passion fruit paired with creamy vanilla blossom.",
+        "abv": "40.0"
+    },
+        {
+            "type": "fruity",
+            "distiller": "Grenalls",
+            "name": "Blueberry",
+            "description": "Sweet but slightly tart with a subtle hint of floral.",
+            "abv": "40.0"
+        },
+        {
+            "type": "fruity",
+            "distiller": "Kuro",
+            "name": "Natsu Peach Gin",
+            "description": "Fruity & sweet, with a robust gin core.",
+            "abv": "40.0"
+        },
+        {
+            "type": "fruity",
+            "distiller": "Lymm Gin",
+            "name": "Blood Orange",
+            "description": "A refreshing summer drink to revive your senses.",
+            "abv": "40.0"
+        },
+        {
+            "type": "fruity",
+            "distiller": "Lymm Gin",
+            "name": "Raspberry",
+            "description": "A palate of raspberry at the front with Juniper and spices at the back",
+            "abv": "40.0"
+        },
+        {
+            "type": "fruity",
+            "distiller": "The Lakes Gin",
+            "name": "Pink Grapefruit Gin",
+            "description": "Zesty pink grapefruit vigour. ",
+            "abv": "46.0"
+        },
+        {
+            "type": "fruity",
+            "distiller": "Three Wrens",
+            "name": "Exquisite Citrus Gin",
+            "description": "Delicious exotic aroma with a dry refreshing taste.",
+            "abv": "40.0"
+        },
+        {
+            "type": "fruity",
+            "distiller": "Three Wrens",
+            "name": "Key Lime Pie",
+            "description": "Lemon thyme & dandelion with fresh lime zest.",
+            "abv": "40.0"
+        },
+        {
+            "type": "fruity",
+            "distiller": "Three Wrens",
+            "name": "Rhubarb Gin",
+            "description": "Distilled with juniper, cassia, cinnamon, sweet orange peel and fresh ginger.",
+            "abv": "40.0"
+        },
+        {
+            "type": "fruity",
+            "distiller": "Zymurgorium",
+            "name": "Sloe Gin",
+            "description": "A spicy Sloe Gin with a rich flavour of spice & plum.",
+            "abv": "40.0"
+        },
+        {
+            "type": "classic",
+            "distiller": "Capesthorne Cheshire",
+            "name": "Dry Gin",
+            "description": "Classic gin packed full of flavour.",
+            "abv": "40.0"
+        },
+        {
+            "type": "classic",
+            "distiller": "Kuro",
+            "name": "Alpine Dry Gin",
+            "description": "Japan-inspired gin crafted in Cheshire. ",
+            "abv": "43.0"
+        },
+        {
+            "type": "classic",
+            "distiller": "Lymm Gin",
+            "name": "London Dry Gin",
+            "description": "Packed with botanicals to tantalise your taste buds.",
+            "abv": "40.0"
+        },
+        {
+            "type": "classic",
+            "distiller": "The Lakes Gin",
+            "name": "Classic English Gin",
+            "description": "A mix of over ten carefully selected botanicals native to the Lake District National Park. ",
+            "abv": "46.0"
+        },
+        {
+            "type": "classic",
+            "distiller": "Three Wrens",
+            "name": "Legends Strength",
+            "description": "Legends strength is only for the brave!",
+            "abv": "57.0"
+        },
+        {
+            "type": "classic",
+            "distiller": "Three Wrens",
+            "name": "Original Dry Gin",
+            "description": "Juniper is the heart and soul of this gin.",
+            "abv": "42.0"
+        },
+        {
+            "type": "floral_herby",
+            "distiller": "Bloom",
+            "name": "Jasmine & Rose",
+            "description": "Inspired by summer days spent in the garden,",
+            "abv": "40.0"
+        },
+        {
+            "type": "floral_herby",
+            "distiller": "Kuro",
+            "name": "Haru Blossom",
+            "description": "A pink gin flavoured with fleeting springtime cherry blossoms.",
+            "abv": "40.0"
+        },
+        {
+            "type": "floral_herby",
+            "distiller": "Manchester Gin",
+            "name": "Wild Spirit",
+            "description": "A savoury gin with complex herbaceous notes.",
+            "abv": "40.0"
+        },
+        {
+            "type": "floral_herby",
+            "distiller": "Meadows Gin (Urmston)",
+            "name": "Classic",
+            "description": "One sip inspires the essence of the meadow.",
+            "abv": "42.0"
+        },
+        {
+            "type": "floral_herby",
+            "distiller": "Ophir",
+            "name": "Oriental Spiced London Dry",
+            "description": "Unique spiced gin – some like it hot!",
+            "abv": "40.0"
+        },
+        {
+            "type": "floral_herby",
+            "distiller": "Three Wrens",
+            "name": "Bison Grass Gin",
+            "description": "Unique gin – first of its kind. Summer hay, lemongrass & vanilla",
+            "abv": "41.5"
+        },
+        {
+            "type": "floral_herby",
+            "distiller": "Three Wrens",
+            "name": "Lemon Verbena & Rose Gin",
+            "description": "Delightful floral tones with a herbaceous finish.",
+            "abv": "42.0"
+        },
+        {
+            "type": "liqueurs",
+            "distiller": "Cheshire Grins",
+            "name": "Espresso Martini",
+            "description": "A unique cocktail gin experience",
+            "abv": "20.0"
+        },
+        {
+            "type": "liqueurs",
+            "distiller": "Lakes Gins",
+            "name": "Elderflower",
+            "description": "Refreshingly floral and vibrant. ",
+            "abv": "25.0"
+        },
+        {
+            "type": "liqueurs",
+            "distiller": "No name (Manchester)",
+            "name": "Dandelion and Burdock",
+            "description": "A sophisticated liqueur brings new life into a beloved childhood classic.",
+            "abv": "18.0"
+        },
+        {
+            "type": "liqueurs",
+            "distiller": "Riverside",
+            "name": "Cucumber",
+            "description": "Delicately aromatic – ultimately refreshing.",
+            "abv": "20.0"
+        },
+        {
+            "type": "liqueurs",
+            "distiller": "Riverside",
+            "name": "Passionfruit",
+            "description": "A summer liqueur infused with fresh passionfruit.",
+            "abv": "20.0"
+        },
+        {
+            "type": "liqueurs",
+            "distiller": "Zymurgorium",
+            "name": "Flamingo Electric Blue & Scottish Raspberry",
+            "description": "Lay back and let the Flagingo house band rock your taste buds!",
+            "abv": "20.0"
+        },
+        {
+            "type": "liqueurs",
+            "distiller": "Zymurgorium",
+            "name": "Pink Pornstar Martini",
+            "description": "Notes of light berry & pure passion fruit juice.",
+            "abv": "20.0"
+        },
+        {
+            "type": "alcohol_free",
+            "distiller": "Clean Co",
+            "name": "Classic Gin",
+            "description": "Aromatic botanical ingredients create the finished non-alcoholic spirit.",
+            "abv": "0.0"
+        },
+        {
+            "type": "alcohol_free",
+            "distiller": "Clean Co",
+            "name": "Rhubarb Gin",
+            "description": "Notes of rhubarb, juniper, & citrus with a hint of coriander, mint & cinnamon.",
+            "abv": "0.0"
+        },
+        {
+            "type": "alcohol_free",
+            "distiller": "Seedlip",
+            "name": "Non-alcoholic Gin",
+            "description": "What to drink when you’re not drinking.",
+            "abv": "0.0"
         }
     ]
 }

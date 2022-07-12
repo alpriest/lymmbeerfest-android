@@ -33,7 +33,8 @@ class Config(
     val howmuch: String,
     val food: String,
     val music: List<Event>,
-    val brews: List<Brew>
+    val brews: List<Brew>,
+    val gins: List<Gin>
 )
 
 internal class ConfigLoader(private val context: Context, private val assets: AssetManager) {

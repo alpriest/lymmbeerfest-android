@@ -25,7 +25,12 @@ class MyBeersRecyclerViewAdapter(
         holder.numberView.text = item.number
         holder.titleView.text = item.brewery + ", " + item.name + " (%.1f%%".format(item.abv) + ")"
         holder.descriptionView.text = item.description
-        holder.sponsorView.text = "Sponsored by " + item.sponsor + " "
+
+        if (item.sponsor != "") {
+            holder.sponsorView.text = "Sponsored by " + item.sponsor + " "
+        } else {
+            holder.sponsorView.text = ""
+        }
     }
 
     override fun getItemCount(): Int = values.size
