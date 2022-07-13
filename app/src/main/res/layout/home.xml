@@ -104,6 +104,38 @@
                 android:paddingBottom="24dp"
                 android:text="@string/additional"
                 android:theme="@style/WhiteText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="12dp"
+                android:text="@string/music"
+                android:theme="@style/YellowTitle" />
+
+            <TextView
+                android:id="@+id/musicText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingBottom="24dp"
+                android:theme="@style/WhiteText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:textAlignment="center"
+                android:text="Thanks to our main sponsor this year:"
+                android:theme="@style/SponsorText" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#FFFFFF"
+                android:src="@drawable/kids_planet"></ImageView>
         </LinearLayout>
 
     </ScrollView>

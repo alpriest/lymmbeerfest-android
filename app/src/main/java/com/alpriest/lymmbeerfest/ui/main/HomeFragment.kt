@@ -39,9 +39,10 @@ class HomeFragment(val config: Config) : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun bind(config: Config, fragment: View) {
-        fragment.findViewById<TextView>(R.id.whenText).setText(config.whenStr)
-        fragment.findViewById<TextView>(R.id.howMuchText).setText(config.howmuch)
-        fragment.findViewById<TextView>(R.id.whatElseText).setText(config.food + "\n\n" + music(config))
+        fragment.findViewById<TextView>(R.id.whenText).text = config.whenStr
+        fragment.findViewById<TextView>(R.id.howMuchText).text = config.howmuch
+        fragment.findViewById<TextView>(R.id.whatElseText).text = config.food
+        fragment.findViewById<TextView>(R.id.musicText).text = music(config)
     }
 
     private fun music(config: Config): String {

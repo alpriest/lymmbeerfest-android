@@ -29,8 +29,8 @@
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimaryDark"
             app:tabMinWidth="1dp"
-            app:tabPaddingEnd="0dp"
-            app:tabPaddingStart="0dp"
+            app:tabPaddingEnd="5dp"
+            app:tabPaddingStart="5dp"
             app:tabTextColor="@color/colorAccent" />
 
     </com.google.android.material.appbar.AppBarLayout>

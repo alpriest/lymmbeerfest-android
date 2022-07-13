@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
                     tabs.setupWithViewPager(viewPager)
 
                     tabs.setTabWidthAsWrapContent(0)
+                    tabs.setTabWidthAsWrapContent(2)
                     tabs.setTabWidthAsWrapContent(4)
                 }
             }
