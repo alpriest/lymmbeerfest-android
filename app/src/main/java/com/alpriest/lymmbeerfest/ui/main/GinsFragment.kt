@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alpriest.lymmbeerfest.R
 
-class GinsFragment(val config: Config) : Fragment() {
+class GinsFragment : Fragment() {
+    var config: Config = Config(whenStr = "", howmuch = "", food = "", music = ArrayList(), brews = ArrayList(), gins = ArrayList())
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,6 +49,14 @@ class GinsFragment(val config: Config) : Fragment() {
         }
 
         return view
+    }
+
+    companion object {
+        fun newInstance(config: Config): GinsFragment {
+            var result = GinsFragment()
+            result.config = config
+            return result
+        }
     }
 }
 

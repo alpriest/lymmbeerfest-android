@@ -16,10 +16,10 @@ class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager, v
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            0 -> HomeFragment(config)
-            1 -> BeersFragment(config)
-            2 -> BeerSelectorFragment(config)
-            3 -> GinsFragment(config)
+            0 -> HomeFragment.newInstance(config)
+            1 -> BeersFragment.newInstance(config)
+            2 -> BeerSelectorFragment.newInstance(config)
+            3 -> GinsFragment.newInstance(config)
             else -> AboutFragment()
         }
     }

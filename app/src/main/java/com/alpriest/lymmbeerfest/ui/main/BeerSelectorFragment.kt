@@ -16,14 +16,16 @@ import com.alpriest.lymmbeerfest.ui.main.LuckyWheel.WheelItem
 import java.util.ArrayList
 import java.util.Random
 
-class BeerSelectorFragment(config: Config) : Fragment() {
+class BeerSelectorFragment : Fragment() {
     private val random = Random()
     private var wheel: LuckyWheel? = null
-    private var data = ArrayList(config.brews)
+    private var data = ArrayList<Brew>()
+    var config: Config = Config(whenStr = "", howmuch = "", food = "", music = ArrayList(), brews = ArrayList(), gins = ArrayList())
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val fragment = inflater.inflate(R.layout.beer_selector, container, false)
 
+        this.data = ArrayList(config.brews)
         this.wheel = fragment.findViewById(R.id.lwv)
         wheel?.addWheelItems(wheelItems())
 
@@ -72,6 +74,14 @@ class BeerSelectorFragment(config: Config) : Fragment() {
         }
 
         return result
+    }
+
+    companion object {
+        fun newInstance(config: Config): BeerSelectorFragment {
+            var result = BeerSelectorFragment()
+            result.config = config
+            return result
+        }
     }
 }
 

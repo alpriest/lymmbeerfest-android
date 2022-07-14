@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alpriest.lymmbeerfest.R
+import java.util.ArrayList
 
-class BeersFragment(val config: Config) : Fragment() {
+class BeersFragment : Fragment() {
+    var config: Config = Config(whenStr = "", howmuch = "", food = "", music = ArrayList(), brews = ArrayList(), gins = ArrayList())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,5 +25,13 @@ class BeersFragment(val config: Config) : Fragment() {
             adapter = MyBeersRecyclerViewAdapter(config.brews)
         }
         return view
+    }
+
+    companion object {
+        fun newInstance(config: Config): BeersFragment {
+            var result = BeersFragment()
+            result.config = config
+            return result
+        }
     }
 }

@@ -14,6 +14,7 @@ import java.io.*
 import java.lang.IllegalArgumentException
 import java.net.ConnectException
 import java.net.URL
+import java.net.UnknownHostException
 import java.nio.channels.Channels
 import java.nio.charset.Charset
 import java.nio.file.Files
@@ -80,6 +81,9 @@ internal class ConfigLoader(private val context: Context, private val assets: As
 
                 loadFromLocalCache(context, onLoad)
             } catch (ex: ConnectException) {
+                Log.i(TAG, "loadFromRemote: Failed to load remote config")
+                loadFromLocalCache(context, onLoad)
+            } catch (ex: UnknownHostException) {
                 Log.i(TAG, "loadFromRemote: Failed to load remote config")
                 loadFromLocalCache(context, onLoad)
             }

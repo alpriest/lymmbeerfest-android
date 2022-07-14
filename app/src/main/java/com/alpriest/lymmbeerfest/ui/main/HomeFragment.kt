@@ -15,8 +15,9 @@ import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
 import java.util.*
 
-class HomeFragment(val config: Config) : Fragment() {
-    
+class HomeFragment : Fragment() {
+    var config: Config = Config(whenStr = "", howmuch = "", food = "", music = ArrayList(), brews = ArrayList(), gins = ArrayList())
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val fragment = inflater.inflate(R.layout.home, container, false)
 
@@ -31,7 +32,7 @@ class HomeFragment(val config: Config) : Fragment() {
             i.data = Uri.parse(url)
             startActivity(i)
         }
-        
+
         bind(config, fragment)
 
         return fragment
@@ -56,5 +57,13 @@ class HomeFragment(val config: Config) : Fragment() {
         val pattern = "EEEE HH:mm"
         val simpleDateFormat = SimpleDateFormat(pattern)
         return simpleDateFormat.format(date)
+    }
+
+    companion object {
+        fun newInstance(config: Config): HomeFragment {
+            var result = HomeFragment()
+            result.config = config
+            return result
+        }
     }
 }
