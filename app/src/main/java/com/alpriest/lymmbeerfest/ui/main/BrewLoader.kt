@@ -3,25 +3,22 @@ package com.alpriest.lymmbeerfest.ui.main
 import android.content.Context
 import android.content.res.AssetManager
 import android.util.Log
-import com.google.android.gms.tasks.Tasks
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Retrofit
+import retrofit2.http.GET
+import retrofit2.http.Streaming
 import java.io.*
-import java.lang.IllegalArgumentException
 import java.net.ConnectException
 import java.net.URL
 import java.net.UnknownHostException
-import java.nio.channels.Channels
 import java.nio.charset.Charset
-import java.nio.file.Files
-import java.nio.file.Paths
 import java.util.*
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
 
 class Event(
         val start: Date,
@@ -67,15 +64,19 @@ internal class ConfigLoader(private val context: Context, private val assets: As
     private fun loadFromRemote(context: Context, onLoad: (String?) -> Unit) {
         val url = URL("https://www.lymmbeerfest.co.uk/app/config.json")
         val configFile = File(context.cacheDir, "config.json").toString()
-        print(configFile)
 
-        GlobalScope.launch(Dispatchers.IO) {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://www.lymmbeerfest.co.uk")
+            .build()
+
+        val service = retrofit.create(LymmBeerFestService::class.java)
+
+        GlobalScope.launch {
             try {
-                url.openStream().use {
-                    Channels.newChannel(it).use { rbc ->
-                        FileOutputStream(configFile).use { fos ->
-                            fos.channel.transferFrom(rbc, 0, Long.MAX_VALUE)
-                        }
+                val response = service.loadConfig().execute()
+                response.body()?.byteStream()?.use {
+                    FileOutputStream(configFile).use { targetOutputStream ->
+                        it.copyTo(targetOutputStream)
                     }
                 }
 
@@ -106,4 +107,10 @@ internal class ConfigLoader(private val context: Context, private val assets: As
 
         return json
     }
+}
+
+interface LymmBeerFestService {
+    @GET("/app/config.json")
+    @Streaming
+    fun loadConfig(): Call<ResponseBody>
 }
