@@ -16,8 +16,8 @@
     <string name="get_directions">Get directions</string>
     <string name="what_else">What else</string>
     <string name="additional">Friday music from Under The Table, TBC and Ash Palmer.\n\nSaturday afternoon pub quiz.\n\nSaturday music from Uno Mas, The Lost Lines, Kastella, Hudsun, Jack Woodward, Scott Simpson, Rhys Hopkins.\n\nDelicious food will be available from local suppliers.</string>
-    <string name="beer_selector">Brewoulette</string>
-    <string name="beer_selector_overview">Feeling adventurous? Hit the button below to have our brewoulette wheel randomly choose your next drink, then head to the bar and get the beers in!</string>
+    <string name="beer_selector">Brewlette</string>
+    <string name="beer_selector_overview">Feeling adventurous? Hit the button below to have our brewlette wheel randomly choose your next drink, then head to the bar and get the beers in!</string>
     <string name="find_me_a_drink">Find me a drink!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
