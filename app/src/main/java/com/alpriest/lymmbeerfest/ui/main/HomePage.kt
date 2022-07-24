@@ -1,6 +1,8 @@
 package com.alpriest.lymmbeerfest.ui.main
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,8 +21,8 @@ import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.alpriest.lymmbeerfest.R
-import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.subtitle
-import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.title
+import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.Subtitle
+import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.Title
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -33,34 +35,38 @@ class HomePage {
                 .fillMaxWidth()
                 .verticalScroll(rememberScrollState())
         ) {
-            title("Lymm Beer Festival")
+            Title("Lymm Beer Festival")
 
-            subtitle("When")
+            Subtitle("When")
             Text(
                 text = config.whenStr,
                 textAlign = TextAlign.Center
             )
 
-            subtitle("How Much")
+            Subtitle("How Much")
             Text(
                 text = config.howmuch,
                 textAlign = TextAlign.Center
             )
 
-            subtitle(text = "Where")
+            Subtitle(text = "Where")
             Text(
                 text = stringResource(R.string.address),
                 textAlign = TextAlign.Center
             )
             MapImage()
+//            val url = String.format(Locale.ENGLISH, "https://www.google.com/maps/dir/?api=1&destination=%f,%f", 53.381098, -2.476424)
+//            val i = Intent(Intent.ACTION_VIEW)
+//            i.data = Uri.parse(url)
+//            startActivity(i)
 
-            subtitle("What else")
+            Subtitle("What else")
             Text(
                 text = config.food,
                 textAlign = TextAlign.Center
             )
 
-            subtitle("Music")
+            Subtitle("Music")
             Text(
                 text = music(config.music),
                 textAlign = TextAlign.Center

@@ -23,8 +23,10 @@ import com.alpriest.lymmbeerfest.R
 
 private val curvy = Font(R.font.tangerine_bold, FontWeight.Bold)
 private val bodyText = Font(R.font.montserrat_regular)
+private val boldBodyText = Font(R.font.montserrat_bold, FontWeight.Bold)
 
-private val fontFamily = FontFamily(bodyText, curvy)
+private val tangerineFamily = FontFamily(curvy)
+private val montserratFamily = FontFamily(bodyText, boldBodyText)
 
 val beerfestTypography = Typography(
     h1 = TextStyle(
@@ -34,24 +36,26 @@ val beerfestTypography = Typography(
         textAlign = TextAlign.Center
     ),
     h2 = TextStyle(
-        fontFamily = fontFamily,
+        fontFamily = tangerineFamily,
         fontWeight = FontWeight.Bold,
-        fontSize = 48.sp,
+        fontSize = 38.sp,
         textAlign = TextAlign.Center
     ),
     body1 = TextStyle(
-        fontFamily = fontFamily,
+        fontFamily = montserratFamily,
         color = Color.White,
         fontSize = 16.sp
+    ),
+    h3 = TextStyle(
+        fontFamily = montserratFamily,
+        color = Color.White,
+        fontSize = 16.sp,
+        fontWeight = FontWeight.Bold
     )
 )
 
 val beerfestColors = lightColors(
     primary = Color.White,
-    surface = Color.Black,
-    onSurface = Color.Red,
-    secondary = Color.Green,
-    primaryVariant = Color.Blue
 )
 
 class StyleGuide {
@@ -66,7 +70,7 @@ class StyleGuide {
         }
 
         @Composable
-        fun title(text: String) {
+        fun Title(text: String) {
             Text(
                 text = text,
                 style = MaterialTheme.typography.h1
@@ -74,7 +78,7 @@ class StyleGuide {
         }
 
         @Composable
-        fun subtitle(text: String) {
+        fun Subtitle(text: String) {
             Text(
                 text = text,
                 color = colorResource(R.color.gold),
