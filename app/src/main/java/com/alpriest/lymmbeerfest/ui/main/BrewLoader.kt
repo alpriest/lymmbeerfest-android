@@ -21,8 +21,8 @@ import java.nio.charset.Charset
 import java.util.*
 
 class Event(
-        val start: Date,
-        val name: String
+    val start: Date,
+    val name: String
 )
 
 class Config(
@@ -33,7 +33,8 @@ class Config(
     val music: List<Event>,
     val brews: List<Brew>,
     val gins: List<Gin>
-)
+) {
+}
 
 internal class ConfigLoader(private val context: Context, private val assets: AssetManager) {
     private val TAG = "ConfigLoader"

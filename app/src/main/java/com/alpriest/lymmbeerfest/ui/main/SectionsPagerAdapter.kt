@@ -12,7 +12,7 @@ import com.alpriest.lymmbeerfest.R
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
-class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager, val config: Config) : FragmentPagerAdapter(fm) {
+class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager, val config: Config) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
