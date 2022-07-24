@@ -1,6 +1,7 @@
 package com.alpriest.lymmbeerfest.ui.main.LuckyWheel
 
 import android.animation.Animator
+import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -11,15 +12,13 @@ import android.graphics.Rect
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
+import android.view.ViewPropertyAnimator
 import android.view.animation.DecelerateInterpolator
+import android.view.animation.RotateAnimation
 
 /**
  * Created by mohamed on 22/04/17.
  */
-
-internal interface OnRotationListener {
-    fun onFinishRotation()
-}
 
 internal class WheelView : View {
     private var range = RectF()
@@ -30,12 +29,16 @@ internal class WheelView : View {
     private var center: Int = 0
     private var mWheelBackground: Int = 0
     private var mWheelItems: List<WheelItem>? = null
-    private var mOnLuckyWheelReachTheTarget: OnLuckyWheelReachTheTarget? = null
-    private var onRotationListener: OnRotationListener? = null
+    private var mOnLuckyWheelReachTheTarget: (() -> Unit)? = null
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {}
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
+    }
 
     private fun initComponents() {
         //arc paint object
@@ -49,7 +52,12 @@ internal class WheelView : View {
         textPaint!!.isDither = true
         textPaint!!.textSize = 30f
         //rect rang of the arc
-        range = RectF(padding.toFloat(), padding.toFloat(), (padding + radius).toFloat(), (padding + radius).toFloat())
+        range = RectF(
+            padding.toFloat(),
+            padding.toFloat(),
+            (padding + radius).toFloat(),
+            (padding + radius).toFloat()
+        )
     }
 
     /**
@@ -76,7 +84,7 @@ internal class WheelView : View {
      *
      * @param onLuckyWheelReachTheTarget target reach listener
      */
-    fun setWheelListener(onLuckyWheelReachTheTarget: OnLuckyWheelReachTheTarget) {
+    fun setWheelListener(onLuckyWheelReachTheTarget: (() -> Unit)) {
         mOnLuckyWheelReachTheTarget = onLuckyWheelReachTheTarget
     }
 
@@ -122,10 +130,10 @@ internal class WheelView : View {
         //rotate main bitmap
         val matrix = Matrix()
         matrix.postRotate(45f)
-        val rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+        val rotatedBitmap =
+            Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
         canvas.drawBitmap(rotatedBitmap, null, rect, null)
     }
-
 
     /**
      * Function to draw text below image
@@ -149,35 +157,32 @@ internal class WheelView : View {
      * @param target target number
      */
     fun rotateWheelToTarget(target: Int) {
-        val wheelItemCenter = 270 - getAngleOfIndexTarget(target + 1) + 360 / mWheelItems!!.size.toFloat() / 2
+        val wheelItemCenter =
+            270 - getAngleOfIndexTarget(target + 1) + 360 / mWheelItems!!.size.toFloat() / 2
         val DEFAULT_ROTATION_TIME = 3000
-        animate().setInterpolator(DecelerateInterpolator(2f))
-                .setDuration(DEFAULT_ROTATION_TIME.toLong())
-                .rotation(360 + wheelItemCenter)
-                .setListener(object : Animator.AnimatorListener {
-                    override fun onAnimationStart(animation: Animator) {
 
+        animate()
+            .setInterpolator(DecelerateInterpolator(2f))
+            .setDuration(DEFAULT_ROTATION_TIME.toLong())
+            .rotation(360 + wheelItemCenter)
+            .setListener(object : Animator.AnimatorListener {
+                override fun onAnimationStart(animation: Animator) {
+                }
+
+                override fun onAnimationEnd(animation: Animator) {
+                    if (mOnLuckyWheelReachTheTarget != null) {
+                        mOnLuckyWheelReachTheTarget!!()
                     }
+                    clearAnimation()
+                }
 
-                    override fun onAnimationEnd(animation: Animator) {
-                        if (mOnLuckyWheelReachTheTarget != null) {
-                            mOnLuckyWheelReachTheTarget!!.onReachTarget(target)
-                        }
-                        if (onRotationListener != null) {
-                            onRotationListener!!.onFinishRotation()
-                        }
-                        clearAnimation()
-                    }
+                override fun onAnimationCancel(animation: Animator) {
+                }
 
-                    override fun onAnimationCancel(animation: Animator) {
-
-                    }
-
-                    override fun onAnimationRepeat(animation: Animator) {
-
-                    }
-                })
-                .start()
+                override fun onAnimationRepeat(animation: Animator) {
+                }
+            })
+            .start()
     }
 
     /**
@@ -187,24 +192,25 @@ internal class WheelView : View {
      */
     fun resetRotationLocationToZeroAngle(target: Int) {
         animate().setDuration(0)
-                .rotation(0f).setListener(object : Animator.AnimatorListener {
-                    override fun onAnimationStart(animation: Animator) {
+            .rotation(0f)
+            .setListener(object : Animator.AnimatorListener {
+                override fun onAnimationStart(animation: Animator) {
 
-                    }
+                }
 
-                    override fun onAnimationEnd(animation: Animator) {
-                        rotateWheelToTarget(target)
-                        clearAnimation()
-                    }
+                override fun onAnimationEnd(animation: Animator) {
+                    rotateWheelToTarget(target)
+                    clearAnimation()
+                }
 
-                    override fun onAnimationCancel(animation: Animator) {
+                override fun onAnimationCancel(animation: Animator) {
 
-                    }
+                }
 
-                    override fun onAnimationRepeat(animation: Animator) {
+                override fun onAnimationRepeat(animation: Animator) {
 
-                    }
-                })
+                }
+            })
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -219,7 +225,12 @@ internal class WheelView : View {
         for (i in mWheelItems!!.indices) {
             archPaint!!.color = mWheelItems!![i].color
             canvas.drawArc(range, tempAngle, sweepAngle, true, archPaint!!)
-            drawText(canvas, tempAngle, if (mWheelItems!![i].text == null) "" else mWheelItems!![i].text, mWheelItems!![i].textColor())
+            drawText(
+                canvas,
+                tempAngle,
+                if (mWheelItems!![i].text == null) "" else mWheelItems!![i].text,
+                mWheelItems!![i].textColor()
+            )
             tempAngle += sweepAngle
         }
 
@@ -234,9 +245,5 @@ internal class WheelView : View {
         radius = width - padding * 2
         center = width / 2
         setMeasuredDimension(width, width)
-    }
-
-    fun setOnRotationListener(onRotationListener: OnRotationListener) {
-        this.onRotationListener = onRotationListener
     }
 }

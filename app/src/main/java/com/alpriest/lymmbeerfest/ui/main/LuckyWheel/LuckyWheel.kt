@@ -1,7 +1,6 @@
 package com.alpriest.lymmbeerfest.ui.main.LuckyWheel
 
 import android.content.Context
-import android.content.res.TypedArray
 import android.graphics.Color
 import android.util.AttributeSet
 import android.view.MotionEvent
@@ -16,7 +15,7 @@ import com.alpriest.lymmbeerfest.R
  * Created by mohamed on 22/04/17.
  */
 
-class LuckyWheel : FrameLayout, View.OnTouchListener, OnRotationListener {
+class LuckyWheel : FrameLayout, View.OnTouchListener {
     private var wheelView: WheelView? = null
     private var target = -1
     private var isRotate = false
@@ -43,7 +42,7 @@ class LuckyWheel : FrameLayout, View.OnTouchListener, OnRotationListener {
         View.inflate(context, R.layout.lucky_wheel_layout, this)
         setOnTouchListener(this)
         wheelView = findViewById(R.id.wv_main_wheel)
-        wheelView!!.setOnRotationListener(this)
+//        wheelView!!.setOnRotationListener(this)
     }
 
     /**
@@ -74,7 +73,7 @@ class LuckyWheel : FrameLayout, View.OnTouchListener, OnRotationListener {
      *
      * @param onLuckyWheelReachTheTarget Lucky wheel listener
      */
-    fun setLuckyWheelReachTheTarget(onLuckyWheelReachTheTarget: OnLuckyWheelReachTheTarget) {
+    fun setLuckyWheelReachTheTarget(onLuckyWheelReachTheTarget: (() -> Unit)) {
         wheelView!!.setWheelListener(onLuckyWheelReachTheTarget)
     }
 
@@ -125,7 +124,7 @@ class LuckyWheel : FrameLayout, View.OnTouchListener, OnRotationListener {
         return true
     }
 
-    override fun onFinishRotation() {
-        isRotate = false
-    }
+//    fun onFinishRotation() {
+//        isRotate = false
+//    }
 }

@@ -40,22 +40,24 @@ class MainActivity : ComponentActivity() {
         val coroutineScope = rememberCoroutineScope()
         val titles = listOf(
             "Home",
-            "Beers"
+            "Beers",
+            "Brewlette"
         )
 
         return Scaffold(
             modifier = Modifier.fillMaxSize(),
             content = {
                 BeerFestTheme {
-                    HorizontalPager(count = 2, state = pagerState) { page ->
+                    HorizontalPager(count = 3, state = pagerState) { page ->
                         when (page) {
                             1 -> HomePage().content(config)
                             0 -> BrewsPage().content(config)
+                            2 -> BrewlettePage().content(config)
                         }
                     }
                 }
             },
-            bottomBar = {
+                bottomBar = {
                 TabRow(
                     // Our selected tab is our current page
                     selectedTabIndex = pagerState.currentPage,
