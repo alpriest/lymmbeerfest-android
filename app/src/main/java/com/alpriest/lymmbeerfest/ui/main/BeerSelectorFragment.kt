@@ -5,16 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-
 import com.alpriest.lymmbeerfest.R
 import com.alpriest.lymmbeerfest.ui.main.LuckyWheel.LuckyWheel
-import com.alpriest.lymmbeerfest.ui.main.LuckyWheel.OnLuckyWheelReachTheTarget
 import com.alpriest.lymmbeerfest.ui.main.LuckyWheel.WheelItem
-
-import java.util.ArrayList
-import java.util.Random
+import java.util.*
 
 class BeerSelectorFragment : Fragment() {
     private val random = Random()

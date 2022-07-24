@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
+import androidx.compose.material.ripple.RippleAlpha
+import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -50,14 +52,14 @@ class MainActivity : ComponentActivity() {
                 BeerFestTheme {
                     HorizontalPager(count = 3, state = pagerState) { page ->
                         when (page) {
-                            1 -> HomePage().content(config)
-                            0 -> BrewsPage().content(config)
+                            0 -> HomePage().content(config)
+                            1 -> BrewsPage().content(config)
                             2 -> BrewlettePage().content(config)
                         }
                     }
                 }
             },
-                bottomBar = {
+            bottomBar = {
                 TabRow(
                     // Our selected tab is our current page
                     selectedTabIndex = pagerState.currentPage,
@@ -76,7 +78,7 @@ class MainActivity : ComponentActivity() {
                             selected = pagerState.currentPage == index,
                             onClick = {
                                 coroutineScope.launch {
-                                    pagerState.animateScrollToPage(
+                                    pagerState.scrollToPage(
                                         index
                                     )
                                 }
@@ -87,19 +89,4 @@ class MainActivity : ComponentActivity() {
             }
         )
     }
-//
-//    @Preview
-//    @Composable
-//    fun PreviewHome() {
-//        home(
-//            Config(
-//                whenStr = "Friday 15th July 2022 : 6pm - 11pm\nSaturday 16th July 2022 : Noon - 11pm",
-//                howmuch = "£5 door entry (includes glass)\n£2 per token\n1 token for a half pint of beer/cider\n2 tokens for a single gin (4 for a double)\nSoft Drinks are FREE",
-//                food = "",
-//                music = ArrayList(),
-//                brews = ArrayList(),
-//                gins = ArrayList()
-//            )
-//        )
-//    }
 }
