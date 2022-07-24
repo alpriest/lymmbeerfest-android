@@ -27,6 +27,7 @@ private val boldBodyText = Font(R.font.montserrat_bold, FontWeight.Bold)
 
 private val tangerineFamily = FontFamily(curvy)
 private val montserratFamily = FontFamily(bodyText, boldBodyText)
+private val Gold = Color(0xFFD700)
 
 val beerfestTypography = Typography(
     h1 = TextStyle(
@@ -51,6 +52,12 @@ val beerfestTypography = Typography(
         color = Color.White,
         fontSize = 16.sp,
         fontWeight = FontWeight.Bold
+    ),
+    caption = TextStyle(
+        fontFamily = montserratFamily,
+        color = Gold,
+        fontSize = 12.sp,
+        textAlign = TextAlign.Right
     )
 )
 
@@ -81,7 +88,7 @@ class StyleGuide {
         fun Subtitle(text: String) {
             Text(
                 text = text,
-                color = colorResource(R.color.gold),
+                color = Gold,
                 style = MaterialTheme.typography.h2,
                 modifier = Modifier.padding(top = 28.dp)
             )
