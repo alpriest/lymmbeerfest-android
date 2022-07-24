@@ -3,6 +3,7 @@ package com.alpriest.lymmbeerfest.ui.main
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.Typography
@@ -10,6 +11,7 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -52,11 +54,33 @@ val beerfestColors = lightColors(
     primaryVariant = Color.Blue
 )
 
-@Composable
-fun BeerFestTheme(content: @Composable () -> Unit) {
-    MaterialTheme(colors = beerfestColors, typography = beerfestTypography) {
-        Box(modifier = Modifier.fillMaxSize().background(Color.Black)) {
-            content()
+class StyleGuide {
+    companion object {
+        @Composable
+        fun BeerFestTheme(content: @Composable () -> Unit) {
+            MaterialTheme(colors = beerfestColors, typography = beerfestTypography) {
+                Box(modifier = Modifier.fillMaxSize().background(Color.Black)) {
+                    content()
+                }
+            }
+        }
+
+        @Composable
+        fun title(text: String) {
+            Text(
+                text = text,
+                style = MaterialTheme.typography.h1
+            )
+        }
+
+        @Composable
+        fun subtitle(text: String) {
+            Text(
+                text = text,
+                color = colorResource(R.color.gold),
+                style = MaterialTheme.typography.h2,
+                modifier = Modifier.padding(top = 28.dp)
+            )
         }
     }
 }
