@@ -1,18 +1,18 @@
 package com.alpriest.lymmbeerfest.ui.main
 
+import android.util.DisplayMetrics
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material.ripple.RippleAlpha
 import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
@@ -23,7 +23,7 @@ import com.alpriest.lymmbeerfest.ui.main.LuckyWheel.WheelView
 
 class BrewlettePage {
     @Composable
-    fun content(config: Config) {
+    fun content(config: Config, metrics: DisplayMetrics) {
         val wheelItems = ArrayList<WheelItem>()
         val isSpinning = remember { mutableStateOf(false) }
         val targetIndex = remember { mutableStateOf(1) }
@@ -62,20 +62,23 @@ class BrewlettePage {
                     }
 
                     Text(targetIndex.value.toString())
+                    Text(metrics.heightPixels.dp.toString())
                 }
 
                 // Needs to reset angle before next spin (or take into account current angle when calculating new angle
                 AndroidView(
                     modifier = Modifier
-                        .scale(2.5f)
-                        .offset(y = 170.dp)
+                        .width((metrics.widthPixels * 2).dp)
+                        .offset(y = metrics.heightPixels.dp / 4)
+                        .scale(3.5f)
                         .graphicsLayer { rotationZ = 0 -rotation.value - 90f - (360f / config.brews.size / 2.0f) }
                         .clickable {
                             isSpinning.value = true
                             displayBrewDetail.value = false
                             targetIndex.value = random.nextInt(config.brews.size)
                             targetAngle.value = targetIndex.value.toFloat() * (360f / config.brews.size)
-                        },
+                        }
+                        .clipToBounds(),
                     factory = { context ->
                         WheelView(context, attrs = null)
                     },

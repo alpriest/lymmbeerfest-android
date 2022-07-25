@@ -1,13 +1,19 @@
 package com.alpriest.lymmbeerfest.ui.main
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -23,12 +29,12 @@ private val boldBodyText = Font(R.font.montserrat_bold, FontWeight.Bold)
 
 private val tangerineFamily = FontFamily(curvy)
 private val montserratFamily = FontFamily(bodyText, boldBodyText)
-val Gold = Color(0xFFFFD700)
 
 val beerfestTypography = Typography(
     h1 = TextStyle(
+        fontFamily = montserratFamily,
         fontWeight = FontWeight.Bold,
-        fontSize = 32.sp,
+        fontSize = 30.sp,
         color = Color.White,
         textAlign = TextAlign.Center
     ),
@@ -51,7 +57,7 @@ val beerfestTypography = Typography(
     ),
     caption = TextStyle(
         fontFamily = montserratFamily,
-        color = Gold,
+        color = Color.Gold,
         fontSize = 12.sp,
         textAlign = TextAlign.Right
     )
@@ -60,6 +66,8 @@ val beerfestTypography = Typography(
 val beerfestColors = lightColors(
     primary = Color.White,
 )
+
+val Color.Companion.Gold: Color get() = Color(0xFFFFD700)
 
 class StyleGuide {
     companion object {
@@ -71,6 +79,14 @@ class StyleGuide {
                         .fillMaxSize()
                         .background(Color.Black)
                 ) {
+                    Image(
+                        painterResource(id = R.drawable.lymm_beer_fest_home_bg),
+                        contentDescription = "",
+                        contentScale = ContentScale.FillHeight,
+                        modifier = Modifier
+                            .alpha(0.15f)
+                            .matchParentSize()
+                    )
                     content()
                 }
             }
@@ -88,7 +104,7 @@ class StyleGuide {
         fun Subtitle(text: String) {
             Text(
                 text = text,
-                color = Gold,
+                color = Color.Gold,
                 style = MaterialTheme.typography.h2,
                 modifier = Modifier.padding(top = 28.dp)
             )
@@ -99,7 +115,7 @@ class StyleGuide {
             Button(
                 modifier = modifier,
                 colors = ButtonDefaults.buttonColors(
-                    backgroundColor = Gold,
+                    backgroundColor = Color.Gold,
                 ),
                 onClick = { /*TODO*/ }
             ) {

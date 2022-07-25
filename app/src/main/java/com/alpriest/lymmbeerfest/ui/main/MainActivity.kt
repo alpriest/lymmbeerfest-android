@@ -5,8 +5,9 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -14,10 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.BeerFestTheme
-import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.pagerTabIndicatorOffset
-import com.google.accompanist.pager.rememberPagerState
+import com.google.accompanist.pager.*
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -54,9 +52,11 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalPagerApi::class)
     @Composable
     fun tabs(config: Config) {
+        val metrics = application.resources.displayMetrics
         val pagerState = rememberPagerState()
         val coroutineScope = rememberCoroutineScope()
         val titles = listOf(
+            TabItem("Home", R.drawable.)
             "Home",
             "Beers",
             "Brewlette",
@@ -65,7 +65,7 @@ class MainActivity : ComponentActivity() {
         )
 
         return Scaffold(
-            modifier = Modifier .fillMaxSize(),
+            modifier = Modifier.fillMaxSize(),
             content = {
                 BeerFestTheme {
                     HorizontalPager(
@@ -76,8 +76,8 @@ class MainActivity : ComponentActivity() {
                         when (page) {
                             0 -> HomePage().content(config)
                             1 -> BeersPage().content(config)
-                            2 -> BrewlettePage().content(config)
-                            3 -> BrewlettePage().content(config)
+                            2 -> BrewlettePage().content(config, metrics)
+                            3 -> BrewlettePage().content(config, metrics)
                             4 -> AboutPage().content(
                                 onOpenUrl = { launchUrl(it) },
                                 onSendEmail = { sendEmail(it) }
@@ -99,28 +99,43 @@ class MainActivity : ComponentActivity() {
                     backgroundColor = Color.Black
                 ) {
                     // Add tabs for all of our pages
-                    titles.forEachIndexed { index, title ->
-                        Tab(
-                            text = {
-                                Text(
-                                    modifier = Modifier.padding(0.dp),
-                                    text = title
-                                )
-                            },
-                            selected = pagerState.currentPage == index,
-                            selectedContentColor = Gold,
-                            unselectedContentColor = Color.White,
-                            onClick = {
-                                coroutineScope.launch {
-                                    pagerState.scrollToPage(
-                                        index
-                                    )
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 12.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        titles.forEachIndexed { index, title ->
+                            tab(
+                                title = title,
+                                index = index,
+                                selected = pagerState.currentPage == index,
+                                onClick = {
+                                    coroutineScope.launch {
+                                        pagerState.scrollToPage(
+                                            index
+                                        )
+                                    }
                                 }
-                            }
-                        )
+                            )
+                        }
                     }
                 }
             }
         )
     }
+
+    @Composable
+    fun tab(title: String, index: Int, selected: Boolean, onClick: () -> Unit) {
+        Text(
+            modifier = Modifier
+                .clickable(onClick = onClick)
+                .padding(horizontal = 18.dp, vertical = 4.dp),
+            style = MaterialTheme.typography.caption,
+            text = title,
+            color = if (selected) Color.Gold else Color.Gray
+        )
+    }
 }
+
+data class TabItem(val title: String, val icon: String)
