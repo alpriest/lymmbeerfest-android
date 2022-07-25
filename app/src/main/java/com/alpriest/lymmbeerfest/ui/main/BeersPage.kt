@@ -24,12 +24,8 @@ class BeersPage {
                 .fillMaxWidth()
                 .verticalScroll(rememberScrollState())
         ) {
-            Title("Beers")
-
-            Column {
-                config.brews.forEachIndexed { index, brew ->
-                    BrewRow(index, brew)
-                }
+            config.brews.forEachIndexed { index, brew ->
+                BrewRow(index, brew)
             }
         }
     }
@@ -54,7 +50,7 @@ class BeersPage {
                 if (brew.sponsor.isNotEmpty()) {
                     Text(
                         "Sponsored by " + brew.sponsor,
-                        color = colorResource(R.color.gold),
+                        color = MaterialTheme.colors.gold(),
                         style = MaterialTheme.typography.caption,
                         modifier = Modifier.fillMaxWidth()
                     )

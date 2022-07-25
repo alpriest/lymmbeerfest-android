@@ -1,6 +1,7 @@
 package com.alpriest.lymmbeerfest.ui.main
 
 import android.content.Intent
+import android.icu.text.CaseMap
 import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,12 +12,18 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.composed
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.lerp
 import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.BeerFestTheme
 import com.google.accompanist.pager.*
 import kotlinx.coroutines.launch
+import kotlin.math.absoluteValue
+import kotlin.math.max
 
 class MainActivity : ComponentActivity() {
 
@@ -56,7 +63,6 @@ class MainActivity : ComponentActivity() {
         val pagerState = rememberPagerState()
         val coroutineScope = rememberCoroutineScope()
         val titles = listOf(
-            TabItem("Home", R.drawable.)
             "Home",
             "Beers",
             "Brewlette",
@@ -86,54 +92,41 @@ class MainActivity : ComponentActivity() {
                     }
                 }
             },
-            bottomBar = {
-                TabRow(
-                    // Our selected tab is our current page
+            topBar = {
+                ScrollableTabRow(
                     selectedTabIndex = pagerState.currentPage,
-                    // Override the indicator, using the provided pagerTabIndicatorOffset modifier
+                    backgroundColor = Color.Black,
+                    edgePadding = 0.dp,
                     indicator = { tabPositions ->
                         TabRowDefaults.Indicator(
-                            Modifier.pagerTabIndicatorOffset(pagerState, tabPositions)
+                            Modifier
+                                .pagerTabIndicatorOffset(pagerState, tabPositions),
+                            color = MaterialTheme.colors.gold(),
                         )
-                    },
-                    backgroundColor = Color.Black
+                    }
                 ) {
-                    // Add tabs for all of our pages
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 12.dp),
-                        horizontalArrangement = Arrangement.SpaceEvenly
-                    ) {
-                        titles.forEachIndexed { index, title ->
-                            tab(
-                                title = title,
-                                index = index,
-                                selected = pagerState.currentPage == index,
-                                onClick = {
-                                    coroutineScope.launch {
-                                        pagerState.scrollToPage(
-                                            index
-                                        )
-                                    }
+                    titles.forEachIndexed { index, title ->
+                        Tab(
+                            text = {
+                                Text(
+                                    modifier = Modifier.padding(0.dp),
+                                    text = title
+                                )
+                            },
+                            selected = pagerState.currentPage == index,
+                            selectedContentColor = MaterialTheme.colors.gold(),
+                            unselectedContentColor = Color.Gray,
+                            onClick = {
+                                coroutineScope.launch {
+                                    pagerState.scrollToPage(
+                                        index
+                                    )
                                 }
-                            )
-                        }
+                            }
+                        )
                     }
                 }
             }
-        )
-    }
-
-    @Composable
-    fun tab(title: String, index: Int, selected: Boolean, onClick: () -> Unit) {
-        Text(
-            modifier = Modifier
-                .clickable(onClick = onClick)
-                .padding(horizontal = 18.dp, vertical = 4.dp),
-            style = MaterialTheme.typography.caption,
-            text = title,
-            color = if (selected) Color.Gold else Color.Gray
         )
     }
 }

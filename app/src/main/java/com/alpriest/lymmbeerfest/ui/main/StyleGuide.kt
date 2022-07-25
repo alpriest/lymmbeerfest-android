@@ -57,7 +57,6 @@ val beerfestTypography = Typography(
     ),
     caption = TextStyle(
         fontFamily = montserratFamily,
-        color = Color.Gold,
         fontSize = 12.sp,
         textAlign = TextAlign.Right
     )
@@ -67,7 +66,7 @@ val beerfestColors = lightColors(
     primary = Color.White,
 )
 
-val Color.Companion.Gold: Color get() = Color(0xFFFFD700)
+fun Colors.gold(): Color { return Color(0xFFFFD700) }
 
 class StyleGuide {
     companion object {
@@ -104,7 +103,7 @@ class StyleGuide {
         fun Subtitle(text: String) {
             Text(
                 text = text,
-                color = Color.Gold,
+                color = MaterialTheme.colors.gold(),
                 style = MaterialTheme.typography.h2,
                 modifier = Modifier.padding(top = 28.dp)
             )
@@ -115,7 +114,7 @@ class StyleGuide {
             Button(
                 modifier = modifier,
                 colors = ButtonDefaults.buttonColors(
-                    backgroundColor = Color.Gold,
+                    backgroundColor = MaterialTheme.colors.gold(),
                 ),
                 onClick = { /*TODO*/ }
             ) {
