@@ -4,14 +4,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.Typography
-import androidx.compose.material.lightColors
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -27,12 +23,12 @@ private val boldBodyText = Font(R.font.montserrat_bold, FontWeight.Bold)
 
 private val tangerineFamily = FontFamily(curvy)
 private val montserratFamily = FontFamily(bodyText, boldBodyText)
-private val Gold = Color(0xFFD700)
+val Gold = Color(0xFFFFD700)
 
 val beerfestTypography = Typography(
     h1 = TextStyle(
         fontWeight = FontWeight.Bold,
-        fontSize = 36.sp,
+        fontSize = 32.sp,
         color = Color.White,
         textAlign = TextAlign.Center
     ),
@@ -42,16 +38,16 @@ val beerfestTypography = Typography(
         fontSize = 38.sp,
         textAlign = TextAlign.Center
     ),
-    body1 = TextStyle(
-        fontFamily = montserratFamily,
-        color = Color.White,
-        fontSize = 16.sp
-    ),
     h3 = TextStyle(
         fontFamily = montserratFamily,
         color = Color.White,
         fontSize = 16.sp,
         fontWeight = FontWeight.Bold
+    ),
+    body1 = TextStyle(
+        fontFamily = montserratFamily,
+        color = Color.White,
+        fontSize = 16.sp
     ),
     caption = TextStyle(
         fontFamily = montserratFamily,
@@ -70,7 +66,11 @@ class StyleGuide {
         @Composable
         fun BeerFestTheme(content: @Composable () -> Unit) {
             MaterialTheme(colors = beerfestColors, typography = beerfestTypography) {
-                Box(modifier = Modifier.fillMaxSize().background(Color.Black)) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Color.Black)
+                ) {
                     content()
                 }
             }
@@ -79,7 +79,7 @@ class StyleGuide {
         @Composable
         fun Title(text: String) {
             Text(
-                text = text,
+                text = text.uppercase(),
                 style = MaterialTheme.typography.h1
             )
         }
@@ -92,6 +92,22 @@ class StyleGuide {
                 style = MaterialTheme.typography.h2,
                 modifier = Modifier.padding(top = 28.dp)
             )
+        }
+
+        @Composable
+        fun GoldButton(modifier: Modifier = Modifier, text: String) {
+            Button(
+                modifier = modifier,
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = Gold,
+                ),
+                onClick = { /*TODO*/ }
+            ) {
+                Text(
+                    color = Color.Black,
+                    text = text
+                )
+            }
         }
     }
 }

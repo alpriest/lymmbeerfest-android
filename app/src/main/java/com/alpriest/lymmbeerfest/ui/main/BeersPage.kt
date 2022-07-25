@@ -9,15 +9,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.alpriest.lymmbeerfest.R
 import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.Title
 import java.util.ArrayList
 
-class BrewsPage {
+class BeersPage {
     @Composable
     fun content(config: Config) {
         Column(
@@ -77,6 +75,6 @@ class BrewsPage {
             gins = ArrayList()
         )
 
-        return BrewsPage().content(config)
+        return BeersPage().content(config)
     }
 }

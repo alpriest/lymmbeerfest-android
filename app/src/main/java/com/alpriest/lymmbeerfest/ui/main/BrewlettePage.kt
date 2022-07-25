@@ -64,7 +64,7 @@ class BrewlettePage {
                     Text(targetIndex.value.toString())
                 }
 
-                // Doesn't always stop on an item. Need to update targetAngle maths
+                // Needs to reset angle before next spin (or take into account current angle when calculating new angle
                 AndroidView(
                     modifier = Modifier
                         .scale(2.5f)
