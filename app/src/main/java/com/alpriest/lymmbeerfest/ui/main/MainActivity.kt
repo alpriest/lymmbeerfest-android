@@ -13,6 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.BeerFestTheme
+import com.alpriest.lymmbeerfest.ui.main.models.Config
+import com.alpriest.lymmbeerfest.ui.main.pages.*
 import com.google.accompanist.pager.*
 import kotlinx.coroutines.launch
 
@@ -63,8 +65,8 @@ class MainActivity : ComponentActivity() {
 
         return Scaffold(
             modifier = Modifier.fillMaxSize(),
-            content = {
-                BeerFestTheme {
+            content = { padding ->
+                BeerFestTheme(modifier = Modifier.padding(PaddingValues(0.dp, 0.dp, 0.dp, padding.calculateBottomPadding()))) {
                     HorizontalPager(
                         modifier = Modifier.padding(all = 12.dp),
                         count = titles.size,
@@ -83,7 +85,7 @@ class MainActivity : ComponentActivity() {
                     }
                 }
             },
-            topBar = {
+            bottomBar = {
                 ScrollableTabRow(
                     selectedTabIndex = pagerState.currentPage,
                     backgroundColor = Color.Black,

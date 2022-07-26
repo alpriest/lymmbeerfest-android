@@ -1,14 +1,12 @@
-package com.alpriest.lymmbeerfest.ui.main
+package com.alpriest.lymmbeerfest.ui.main.pages
 
 import android.util.DisplayMetrics
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material.ripple.RippleAlpha
 import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.runtime.*
@@ -23,9 +21,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.alpriest.lymmbeerfest.R
+import com.alpriest.lymmbeerfest.ui.main.models.Config
 import com.alpriest.lymmbeerfest.ui.main.LuckyWheel.WheelItem
 import com.alpriest.lymmbeerfest.ui.main.LuckyWheel.WheelView
 import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.GoldButton
+import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.Title
 
 class BrewlettePage {
     @Composable
@@ -57,6 +57,8 @@ class BrewlettePage {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                Title(stringResource(R.string.beer_selector))
+
                 Text(stringResource(R.string.beer_selector_overview))
 
                 GoldButton(

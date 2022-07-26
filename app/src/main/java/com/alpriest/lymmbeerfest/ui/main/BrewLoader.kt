@@ -3,8 +3,8 @@ package com.alpriest.lymmbeerfest.ui.main
 import android.content.Context
 import android.content.res.AssetManager
 import android.util.Log
+import com.alpriest.lymmbeerfest.ui.main.models.Config
 import com.google.gson.Gson
-import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -24,17 +24,6 @@ class Event(
     val start: Date,
     val name: String
 )
-
-class Config(
-    @SerializedName("when")
-    val whenStr: String,
-    val howmuch: String,
-    val food: String,
-    val music: List<Event>,
-    val brews: List<Brew>,
-    val gins: List<Gin>
-) {
-}
 
 internal class ConfigLoader(private val context: Context, private val assets: AssetManager) {
     private val TAG = "ConfigLoader"
@@ -63,7 +52,6 @@ internal class ConfigLoader(private val context: Context, private val assets: As
     }
 
     private fun loadFromRemote(context: Context, onLoad: (String?) -> Unit) {
-        val url = URL("https://www.lymmbeerfest.co.uk/app/config.json")
         val configFile = File(context.cacheDir, "config.json").toString()
 
         val retrofit = Retrofit.Builder()

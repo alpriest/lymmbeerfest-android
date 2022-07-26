@@ -1,4 +1,4 @@
-package com.alpriest.lymmbeerfest.ui.main
+package com.alpriest.lymmbeerfest.ui.main.pages
 
 import android.net.Uri
 import androidx.compose.foundation.Image

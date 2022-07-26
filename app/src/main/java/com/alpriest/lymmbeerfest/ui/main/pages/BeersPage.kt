@@ -1,4 +1,4 @@
-package com.alpriest.lymmbeerfest.ui.main
+package com.alpriest.lymmbeerfest.ui.main.pages
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -6,22 +6,24 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.alpriest.lymmbeerfest.ui.main.Brew
+import com.alpriest.lymmbeerfest.ui.main.models.Config
 import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.Title
-import java.util.ArrayList
+import com.alpriest.lymmbeerfest.ui.main.gold
+import kotlin.collections.ArrayList
 
 class BeersPage {
     @Composable
     fun content(config: Config) {
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxWidth()
                 .verticalScroll(rememberScrollState())
         ) {
+            Title("Beers")
             config.brews.forEachIndexed { index, brew ->
                 BrewRow(index, brew)
             }
@@ -66,7 +68,8 @@ class BeersPage {
             food = "",
             music = ArrayList(),
             brews = ArrayList(),
-            gins = ArrayList()
+            gins = ArrayList(),
+            sponsors = ArrayList()
         )
 
         return BeersPage().content(config)

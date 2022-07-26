@@ -19,7 +19,6 @@
     <string name="beer_selector">Brewlette</string>
     <string name="beer_selector_overview">Feeling adventurous? Hit the button below to have our brewlette wheel randomly choose your next drink, then head to the bar and get the beers in!</string>
     <string name="find_me_a_drink">Find me a drink!</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="music">Music</string>
+    <string name="gin_palace_overview">Lymm Ladies Circle have had great fun choosing and sampling the gins for this year’s ‘Gin Palace’. Most of them have their roots firmly planted in Cheshire and Manchester so dive in and give them a try. We have a variety of mixers and garnishes to complement each gin. Check out the bar for a few special gin appearances too.</string>
 </resources>

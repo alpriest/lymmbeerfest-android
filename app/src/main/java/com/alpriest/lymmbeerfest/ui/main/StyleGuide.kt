@@ -2,11 +2,10 @@ package com.alpriest.lymmbeerfest.ui.main
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
@@ -64,15 +63,17 @@ val beerfestColors = lightColors(
     primary = Color.White,
 )
 
-fun Colors.gold(): Color { return Color(0xFFFFD700) }
+fun Colors.gold(): Color {
+    return Color(0xFFFFD700)
+}
 
 class StyleGuide {
     companion object {
         @Composable
-        fun BeerFestTheme(content: @Composable () -> Unit) {
+        fun BeerFestTheme(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
             MaterialTheme(colors = beerfestColors, typography = beerfestTypography) {
                 Box(
-                    modifier = Modifier
+                    modifier = modifier
                         .fillMaxSize()
                         .background(Color.Black)
                 ) {
@@ -91,24 +92,39 @@ class StyleGuide {
 
         @Composable
         fun Title(text: String) {
-            Text(
-                text = text.uppercase(),
-                style = MaterialTheme.typography.h1
-            )
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = text.uppercase(),
+                    style = MaterialTheme.typography.h1
+                )
+            }
         }
 
         @Composable
         fun Subtitle(text: String) {
-            Text(
-                text = text,
-                color = MaterialTheme.colors.gold(),
-                style = MaterialTheme.typography.h2,
-                modifier = Modifier.padding(top = 28.dp)
-            )
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = text,
+                    color = MaterialTheme.colors.gold(),
+                    style = MaterialTheme.typography.h2,
+                    modifier = Modifier.padding(top = 28.dp)
+                )
+            }
         }
 
         @Composable
-        fun GoldButton(modifier: Modifier = Modifier, text: String, enabled: Boolean = true, onClick: () -> Unit) {
+        fun GoldButton(
+            modifier: Modifier = Modifier,
+            text: String,
+            enabled: Boolean = true,
+            onClick: () -> Unit
+        ) {
             Button(
                 modifier = modifier,
                 enabled = enabled,
