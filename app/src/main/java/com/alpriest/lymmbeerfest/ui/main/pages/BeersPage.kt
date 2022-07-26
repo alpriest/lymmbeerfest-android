@@ -42,7 +42,7 @@ class BeersPage {
 
             Column {
                 Text(
-                    text = brew.name,
+                    text = brew.brewery + ", " + brew.name + " (" + brew.abv + "%)",
                     style = MaterialTheme.typography.h3
                 )
                 Text(brew.description)

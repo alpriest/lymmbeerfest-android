@@ -66,7 +66,7 @@ class GinPage {
     private fun GinRow(modifier: Modifier = Modifier, gin: Gin) {
         Column(modifier = modifier) {
             Text(
-                text = gin.distiller + ", " + gin.name,
+                text = gin.distiller + ", " + gin.name + " (" + gin.abv + "%)",
                 style = MaterialTheme.typography.h3
             )
             Text(gin.description)
