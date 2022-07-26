@@ -34,10 +34,11 @@ class AboutPage {
 
             GoldButton(
                 modifier = Modifier
-                    .padding(bottom = 48.dp)
-                    .clickable { onSendEmail("beerfestival@lymmroundtable.co.uk") },
+                    .padding(bottom = 48.dp),
                 text = stringResource(id = R.string.email)
-            )
+            ) {
+                onSendEmail("beerfestival@lymmroundtable.co.uk")
+            }
 
             Image(
                 modifier = Modifier

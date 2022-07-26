@@ -1,29 +1,20 @@
 package com.alpriest.lymmbeerfest.ui.main
 
 import android.content.Intent
-import android.icu.text.CaseMap
 import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.composed
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.lerp
 import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.BeerFestTheme
 import com.google.accompanist.pager.*
 import kotlinx.coroutines.launch
-import kotlin.math.absoluteValue
-import kotlin.math.max
 
 class MainActivity : ComponentActivity() {
 
@@ -83,7 +74,7 @@ class MainActivity : ComponentActivity() {
                             0 -> HomePage().content(config)
                             1 -> BeersPage().content(config)
                             2 -> BrewlettePage().content(config, metrics)
-                            3 -> BrewlettePage().content(config, metrics)
+                            3 -> GinPage().content(config)
                             4 -> AboutPage().content(
                                 onOpenUrl = { launchUrl(it) },
                                 onSendEmail = { sendEmail(it) }

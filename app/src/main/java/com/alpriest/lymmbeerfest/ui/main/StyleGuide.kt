@@ -3,12 +3,10 @@ package com.alpriest.lymmbeerfest.ui.main
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
@@ -110,13 +108,14 @@ class StyleGuide {
         }
 
         @Composable
-        fun GoldButton(modifier: Modifier = Modifier, text: String) {
+        fun GoldButton(modifier: Modifier = Modifier, text: String, enabled: Boolean = true, onClick: () -> Unit) {
             Button(
                 modifier = modifier,
+                enabled = enabled,
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = MaterialTheme.colors.gold(),
                 ),
-                onClick = { /*TODO*/ }
+                onClick = onClick
             ) {
                 Text(
                     color = Color.Black,
