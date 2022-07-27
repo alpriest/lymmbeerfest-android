@@ -98,7 +98,8 @@ class StyleGuide {
             ) {
                 Text(
                     text = text.uppercase(),
-                    style = MaterialTheme.typography.h1
+                    style = MaterialTheme.typography.h1,
+                    modifier = Modifier.padding(bottom = 28.dp)
                 )
             }
         }
@@ -112,8 +113,7 @@ class StyleGuide {
                 Text(
                     text = text,
                     color = MaterialTheme.colors.gold(),
-                    style = MaterialTheme.typography.h2,
-                    modifier = Modifier.padding(top = 28.dp)
+                    style = MaterialTheme.typography.h2
                 )
             }
         }

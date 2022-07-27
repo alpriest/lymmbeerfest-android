@@ -49,7 +49,7 @@ class BrewlettePage {
         )
 
         for (brew in config.brews) {
-            wheelItems.add(WheelItem(brew.androidColor(), brew.name + brew.number))
+            wheelItems.add(WheelItem(brew.androidColor(), brew.name))
         }
 
         Box {
@@ -90,16 +90,15 @@ class BrewlettePage {
                     .width((metrics.widthPixels * 2).dp)
                     .height((metrics.widthPixels * 2).dp)
                     .clipToBounds()
-                    .offset(y = metrics.heightPixels.dp / 4)
+                    .offset(y = metrics.heightPixels.dp / 3.5f)
                     .scale(3.5f)
                     .graphicsLayer {
                         rotationZ = 0 - rotation.value - 90f - (360f / config.brews.size / 2.0f)
                     },
                 factory = { context ->
-                    WheelView(context, attrs = null)
-                },
-                update = {
-                    it.addWheelItems(wheelItems)
+                    WheelView(context, attrs = null).apply {
+                        addWheelItems(wheelItems)
+                    }
                 }
             )
         }

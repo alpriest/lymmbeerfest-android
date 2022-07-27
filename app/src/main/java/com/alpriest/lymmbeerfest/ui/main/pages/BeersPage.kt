@@ -24,18 +24,19 @@ class BeersPage {
                 .verticalScroll(rememberScrollState())
         ) {
             Title("Beers")
-            config.brews.forEachIndexed { index, brew ->
-                BrewRow(index, brew)
+
+            config.brews.forEach { brew ->
+                BrewRow(brew)
             }
         }
     }
 
     @Composable
-    fun BrewRow(index: Int, brew: Brew) {
+    fun BrewRow(brew: Brew) {
         Row(modifier = Modifier.padding(top = 24.dp)) {
             Column(Modifier.width(24.dp)) {
                 Text(
-                    text = index.toString(),
+                    text = brew.number,
                     style = MaterialTheme.typography.h3
                 )
             }

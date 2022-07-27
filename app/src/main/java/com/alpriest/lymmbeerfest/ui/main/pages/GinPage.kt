@@ -37,7 +37,9 @@ class GinPage {
 
     @Composable
     private fun Header() {
-        Row {
+        Row(
+            modifier = Modifier.padding(bottom = 28.dp)
+        ) {
             Image(
                 painterResource(id = R.drawable.gin_palace_logo),
                 modifier = Modifier.padding(end = 8.dp),
@@ -55,7 +57,7 @@ class GinPage {
 
             gins.forEach { gin ->
                 GinRow(
-                    modifier = Modifier.padding(bottom = 12.dp),
+                    modifier = Modifier.padding(bottom = 24.dp),
                     gin = gin
                 )
             }

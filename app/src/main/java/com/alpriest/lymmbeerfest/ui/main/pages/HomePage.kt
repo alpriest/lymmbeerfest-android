@@ -1,11 +1,9 @@
 package com.alpriest.lymmbeerfest.ui.main.pages
 
 import android.annotation.SuppressLint
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Paint
+import android.net.Uri
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -16,9 +14,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.RoundRect
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -34,10 +30,9 @@ import com.alpriest.lymmbeerfest.ui.main.models.Sponsor
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class HomePage {
     @Composable
-    fun content(config: Config) {
+    fun content(config: Config, onOpenUrl: (Uri) -> Unit) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
@@ -46,45 +41,47 @@ class HomePage {
         ) {
             Title("Lymm Beer Festival")
 
-            Subtitle("When")
-            Text(
-                text = config.whenStr,
-                textAlign = TextAlign.Center
-            )
-
-            Subtitle("How Much")
-            Text(
-                text = config.howmuch,
-                textAlign = TextAlign.Center
-            )
-
-            Subtitle(text = "Where")
-            Text(
-                text = stringResource(R.string.address),
-                textAlign = TextAlign.Center
-            )
-            MapImage()
-//            val url = String.format(Locale.ENGLISH, "https://www.google.com/maps/dir/?api=1&destination=%f,%f", 53.381098, -2.476424)
-//            val i = Intent(Intent.ACTION_VIEW)
-//            i.data = Uri.parse(url)
-//            startActivity(i)
-
-            Subtitle("What else")
-            Text(
-                text = config.food,
-                textAlign = TextAlign.Center
-            )
-
-            Subtitle("Music")
-            Text(
-                text = music(config.music),
-                textAlign = TextAlign.Center
-            )
+            TitledParagraph(title = "When", text = config.whenStr)
+            TitledParagraph(title = "How Much", text = config.howmuch)
+            TitledParagraph(title = "Where", text = stringResource(R.string.address))
+            Map(onOpenUrl)
+            TitledParagraph(title = "What else", text = config.food)
+            TitledParagraph("Music", text = music(config.music))
 
             Subtitle("Thanks to...")
 
             Sponsors(config.sponsors)
         }
+    }
+
+    @Composable
+    private fun TitledParagraph(title: String, text: String) {
+        Subtitle(title)
+        Text(
+            text = text,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(bottom = 28.dp)
+        )
+    }
+
+    @Composable
+    private fun Map(onOpenUrl: (Uri) -> Unit) {
+        MapImage(
+            modifier = Modifier
+                .clickable {
+                    onOpenUrl(
+                        Uri.parse(
+                            String.format(
+                                Locale.ENGLISH,
+                                "https://www.google.com/maps/dir/?api=1&destination=%f,%f",
+                                53.381098,
+                                -2.476424
+                            )
+                        )
+                    )
+                }
+                .padding(bottom = 28.dp)
+        )
     }
 
     @Composable
@@ -137,14 +134,14 @@ class HomePage {
 
     @OptIn(ExperimentalCoilApi::class)
     @Composable
-    private fun MapImage() {
+    private fun MapImage(modifier: Modifier = Modifier) {
         val painter =
             rememberImagePainter(data = "https://maps.googleapis.com/maps/api/staticmap?center=" + 53.381098 + "," + -2.476424 + "&zoom=15&size=300x300&sensor=false&key=AIzaSyBEUMHrUP7tf28iVD9eljaheu_l-BZYnbg")
 
         Image(
             painter = painter,
             contentDescription = "Map of Lymm",
-            modifier = Modifier
+            modifier = modifier
                 .size(300.dp, 300.dp)
                 .padding(top = 12.dp),
             contentScale = ContentScale.Crop

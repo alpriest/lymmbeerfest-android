@@ -73,7 +73,7 @@ class MainActivity : ComponentActivity() {
                         state = pagerState
                     ) { page ->
                         when (page) {
-                            0 -> HomePage().content(config)
+                            0 -> HomePage().content(config, onOpenUrl = { launchUrl(it) })
                             1 -> BeersPage().content(config)
                             2 -> BrewlettePage().content(config, metrics)
                             3 -> GinPage().content(config)
