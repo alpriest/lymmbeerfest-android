@@ -13,6 +13,11 @@ class Config(
     val music: List<Event>,
     val brews: List<Brew>,
     val gins: List<Gin>,
-    val sponsors: List<Sponsor>
-) {
-}
+    val sponsors: Sponsors
+)
+
+class Sponsors(
+    val main: Sponsor,
+    val food: Sponsor,
+    val gin: Sponsor
+)

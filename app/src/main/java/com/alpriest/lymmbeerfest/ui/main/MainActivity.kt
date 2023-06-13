@@ -123,5 +123,3 @@ class MainActivity : ComponentActivity() {
         )
     }
 }
-
-data class TabItem(val title: String, val icon: String)

@@ -13,6 +13,8 @@ import com.alpriest.lymmbeerfest.ui.main.Brew
 import com.alpriest.lymmbeerfest.ui.main.models.Config
 import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.Title
 import com.alpriest.lymmbeerfest.ui.main.gold
+import com.alpriest.lymmbeerfest.ui.main.models.Sponsor
+import com.alpriest.lymmbeerfest.ui.main.models.Sponsors
 import kotlin.collections.ArrayList
 
 class BeersPage {
@@ -70,7 +72,9 @@ class BeersPage {
             music = ArrayList(),
             brews = ArrayList(),
             gins = ArrayList(),
-            sponsors = ArrayList()
+            sponsors = Sponsors(main = Sponsor("", "", ""),
+                food = Sponsor("", "", ""),
+                gin = Sponsor("", "", ""))
         )
 
         return BeersPage().content(config)

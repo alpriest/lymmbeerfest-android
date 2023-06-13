@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.alpriest.lymmbeerfest.R
+import com.alpriest.lymmbeerfest.ui.main.Brew
 import com.alpriest.lymmbeerfest.ui.main.models.Config
 import com.alpriest.lymmbeerfest.ui.main.LuckyWheel.WheelItem
 import com.alpriest.lymmbeerfest.ui.main.LuckyWheel.WheelView
@@ -84,23 +85,25 @@ class BrewlettePage {
                 }
             }
 
-            // Needs to reset angle before next spin (or take into account current angle when calculating new angle
-            AndroidView(
-                modifier = Modifier
-                    .width((metrics.widthPixels * 2).dp)
-                    .height((metrics.widthPixels * 2).dp)
-                    .clipToBounds()
-                    .offset(y = metrics.heightPixels.dp / 3.5f)
-                    .scale(3.5f)
-                    .graphicsLayer {
-                        rotationZ = 0 - rotation.value - 90f - (360f / config.brews.size / 2.0f)
-                    },
-                factory = { context ->
-                    WheelView(context, attrs = null).apply {
-                        addWheelItems(wheelItems)
+            if (!config.brews.isEmpty()) {
+                // Needs to reset angle before next spin (or take into account current angle when calculating new angle
+                AndroidView(
+                    modifier = Modifier
+                        .width((metrics.widthPixels * 2).dp)
+                        .height((metrics.widthPixels * 2).dp)
+                        .clipToBounds()
+                        .offset(y = metrics.heightPixels.dp / 3.5f)
+                        .scale(3.5f)
+                        .graphicsLayer {
+                            rotationZ = 0 - rotation.value - 90f - (360f / config.brews.size / 2.0f)
+                        },
+                    factory = { context ->
+                        WheelView(context, attrs = null).apply {
+                            addWheelItems(wheelItems)
+                        }
                     }
-                }
-            )
+                )
+            }
         }
     }
 }

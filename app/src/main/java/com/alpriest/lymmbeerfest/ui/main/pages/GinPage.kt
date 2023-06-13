@@ -28,7 +28,14 @@ class GinPage {
                 .verticalScroll(rememberScrollState())
         ) {
             Title("Gin Palace")
-            Header()
+            Header(config)
+
+            Text(
+                "Thanks to our Gin sponsor:",
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
+            SponsorView(config.sponsors.gin)
+
             headings.forEach { header ->
                 GinGroupRow(header, config.gins.filter { it.type == header })
             }
@@ -36,7 +43,7 @@ class GinPage {
     }
 
     @Composable
-    private fun Header() {
+    private fun Header(config: Config) {
         Row(
             modifier = Modifier.padding(bottom = 28.dp)
         ) {
