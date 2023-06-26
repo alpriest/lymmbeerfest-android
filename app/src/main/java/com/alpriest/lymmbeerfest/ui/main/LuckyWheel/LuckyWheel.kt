@@ -1,7 +1,6 @@
 package com.alpriest.lymmbeerfest.ui.main.LuckyWheel
 
 import android.content.Context
-import android.graphics.Color
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
@@ -10,6 +9,7 @@ import android.widget.FrameLayout
 import androidx.annotation.AttrRes
 
 import com.alpriest.lymmbeerfest.R
+import android.graphics.Color
 
 /**
  * Created by mohamed on 22/04/17.
@@ -42,16 +42,6 @@ class LuckyWheel : FrameLayout, View.OnTouchListener {
         View.inflate(context, R.layout.lucky_wheel_layout, this)
         setOnTouchListener(this)
         wheelView = findViewById(R.id.wv_main_wheel)
-//        wheelView!!.setOnRotationListener(this)
-    }
-
-    /**
-     * Function to add items to wheel items
-     *
-     * @param wheelItems Wheel items
-     */
-    fun addWheelItems(wheelItems: List<WheelItem>) {
-        wheelView!!.addWheelItems(wheelItems)
     }
 
     fun applyAttribute(attrs: AttributeSet?) {
@@ -66,22 +56,6 @@ class LuckyWheel : FrameLayout, View.OnTouchListener {
         }
 
         typedArray.recycle()
-    }
-
-    /**
-     * Function to set lucky wheel reach the target listener
-     *
-     * @param onLuckyWheelReachTheTarget Lucky wheel listener
-     */
-    fun setLuckyWheelReachTheTarget(onLuckyWheelReachTheTarget: (() -> Unit)) {
-        wheelView!!.setWheelListener(onLuckyWheelReachTheTarget)
-    }
-
-    /**
-     * @param target target to rotate before swipe
-     */
-    fun setTarget(target: Int) {
-        this.target = target
     }
 
     /**
@@ -105,6 +79,7 @@ class LuckyWheel : FrameLayout, View.OnTouchListener {
                 x1 = event.x
                 y1 = event.y
             }
+
             MotionEvent.ACTION_UP -> {
                 x2 = event.x
                 y2 = event.y
@@ -119,6 +94,7 @@ class LuckyWheel : FrameLayout, View.OnTouchListener {
                         rotateWheelTo(target)
                 }
             }
+
             else -> return true
         }
         return true

@@ -170,9 +170,7 @@ internal class WheelView : View {
                 }
 
                 override fun onAnimationEnd(animation: Animator) {
-                    if (mOnLuckyWheelReachTheTarget != null) {
-                        mOnLuckyWheelReachTheTarget!!()
-                    }
+                    mOnLuckyWheelReachTheTarget?.let { it() }
                     clearAnimation()
                 }
 
