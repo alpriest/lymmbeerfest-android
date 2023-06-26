@@ -6,6 +6,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -13,6 +14,7 @@ import com.alpriest.lymmbeerfest.ui.main.Brew
 import com.alpriest.lymmbeerfest.ui.main.models.Config
 import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.Title
 import com.alpriest.lymmbeerfest.ui.main.gold
+import com.alpriest.lymmbeerfest.ui.main.models.GinConfigPage
 import com.alpriest.lymmbeerfest.ui.main.models.Sponsor
 import com.alpriest.lymmbeerfest.ui.main.models.Sponsors
 import kotlin.collections.ArrayList
@@ -65,18 +67,6 @@ class BeersPage {
     @Preview
     @Composable
     fun ComposablePreview() {
-        val config = Config(
-            whenStr = "",
-            howmuch = "",
-            food = "",
-            music = ArrayList(),
-            brews = ArrayList(),
-            gins = ArrayList(),
-            sponsors = Sponsors(main = Sponsor("", "", ""),
-                food = Sponsor("", "", ""),
-                gin = Sponsor("", "", ""))
-        )
-
-        return BeersPage().content(config)
+        return BeersPage().content(Config.preview())
     }
 }

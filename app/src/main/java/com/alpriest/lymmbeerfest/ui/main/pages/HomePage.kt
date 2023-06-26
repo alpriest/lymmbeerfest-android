@@ -27,6 +27,7 @@ import com.alpriest.lymmbeerfest.ui.main.StyleGuide
 import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.Subtitle
 import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.Title
 import com.alpriest.lymmbeerfest.ui.main.models.Config
+import com.alpriest.lymmbeerfest.ui.main.models.GinConfigPage
 import com.alpriest.lymmbeerfest.ui.main.models.Sponsor
 import com.alpriest.lymmbeerfest.ui.main.models.Sponsors
 import java.text.SimpleDateFormat
@@ -46,7 +47,8 @@ fun HomepagePreview() {
             main = Sponsor("Aviation Solutions", "https://lymmbeerfest.co.uk/app/airspace-aviation-solutions.png", ""),
             food = Sponsor("", "", ""),
             gin = Sponsor("", "", "")
-        )
+        ),
+        ginPage = GinConfigPage("", "")
     )
 
     return StyleGuide.BeerFestTheme {
@@ -63,7 +65,7 @@ class HomePage {
                 .fillMaxWidth()
                 .verticalScroll(rememberScrollState())
         ) {
-            Title("Lymm Beer Festival")
+            Title("Lymm Beer & Gin Festival")
 
             TitledParagraph(title = "When", text = config.whenStr)
             TitledParagraph(title = "How Much", text = config.howmuch)

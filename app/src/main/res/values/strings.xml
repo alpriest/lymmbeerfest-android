@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lymm Beer Festival</string>
+    <string name="app_name">Lymm Beer &amp; Gin</string>
     <string name="tab_text_1">Home</string>
     <string name="tab_text_2">Beer</string>
     <string name="tab_text_3">Gin</string>
@@ -7,18 +7,14 @@
     <string name="history">The Lymm Beer Festival was the brainchild of the Lymm and District Round Table member Chris Stephens. Started in 2011, the Lymm Beer Fest has quickly established itself as a firm favourite with local people and has become one of the three main annual charity events organised by Lymm and District Round Table in order to raise money for local charities and community groups. The other events are the Lymm Duck Race and the Big Lymm Bonfire.\n\nThe event will take place in the Lymm Village Hall and will offer over 35 carefully selected real ales, ciders and perries. We will also be serving a fantastic selection of gins at the President’s Gin Palace. There will be live music involving a host of talented local bands and singers, and a selection of hot and cold foods, with all profits going to charity. For those abstaining or driving we will also be offering free soft drinks.</string>
     <string name="website">www.lymmbeerfest.co.uk</string>
     <string name="email">beerfestival@lymmroundtable.co.uk</string>
-    <string name="date_and_times">Friday 6th September 2019 : 6pm - 11pm\nSaturday 7th September 2019 : Noon - 11pm</string>
     <string name="when">When</string>
     <string name="how_much">How much</string>
-    <string name="prices">£5 Door Entry (includes glass)\nTokens are £1 each\n3 tokens for 1 pint of beer\n5 tokens for 1 gin and tonic\nSoft Drinks are FREE</string>
     <string name="where">Where</string>
     <string name="address">Lymm Village Hall, Pepper Street, Lymm, WA13 0JB</string>
     <string name="get_directions">Get directions</string>
     <string name="what_else">What else</string>
-    <string name="additional">Friday music from Under The Table, TBC and Ash Palmer.\n\nSaturday afternoon pub quiz.\n\nSaturday music from Uno Mas, The Lost Lines, Kastella, Hudsun, Jack Woodward, Scott Simpson, Rhys Hopkins.\n\nDelicious food will be available from local suppliers.</string>
     <string name="beer_selector">Brewlette</string>
     <string name="beer_selector_overview">Feeling adventurous? Hit the button below to have our brewlette wheel randomly choose your next drink, then head to the bar and get the beers in!</string>
     <string name="find_me_a_drink">Find me a drink!</string>
     <string name="music">Music</string>
-    <string name="gin_palace_overview">Lymm Ladies Circle have had great fun choosing and sampling the gins for this year’s ‘Gin Palace’. Most of them have their roots firmly planted in Cheshire and Manchester so dive in and give them a try. We have a variety of mixers and garnishes to complement each gin. Check out the bar for a few special gin appearances too.</string>
 </resources>
