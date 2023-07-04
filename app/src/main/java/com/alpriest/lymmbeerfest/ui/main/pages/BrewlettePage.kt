@@ -1,9 +1,6 @@
 package com.alpriest.lymmbeerfest.ui.main.pages
 
 import android.util.DisplayMetrics
-import androidx.compose.animation.core.FastOutSlowInEasing
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,7 +11,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -22,7 +19,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -39,21 +35,9 @@ class BrewlettePage {
     fun content(config: Config, metrics: DisplayMetrics) {
         val wheelItems = ArrayList<WheelItem>()
         val isSpinning = remember { mutableStateOf(false) }
-        val targetIndex = remember { mutableStateOf(1) }
-        val targetAngle = remember { mutableStateOf(0f) }
+        val targetIndex: MutableState<Int?> = remember { mutableStateOf(null) }
         val displayBrewDetail = remember { mutableStateOf(false) }
         val random = java.util.Random()
-        val rotation: State<Float> = animateFloatAsState(
-            targetValue = targetAngle.value,
-            animationSpec = tween(
-                durationMillis = 3000,
-                easing = FastOutSlowInEasing,
-            ),
-            finishedListener = {
-                isSpinning.value = false
-                displayBrewDetail.value = true
-            }
-        )
 
         for (brew in config.brews) {
             wheelItems.add(WheelItem(brew.androidColor(), brew.name))
@@ -76,18 +60,19 @@ class BrewlettePage {
                     isSpinning.value = true
                     displayBrewDetail.value = false
                     targetIndex.value = random.nextInt(config.brews.size)
-                    targetAngle.value = (targetIndex.value.toFloat() * (360f / config.brews.size)) + targetAngle.value
                 }
 
                 if (displayBrewDetail.value) {
-                    Text(
-                        modifier = Modifier
-                            .padding(vertical = 24.dp),
-                        style = MaterialTheme.typography.h3,
-                        color = Color.White,
-                        textAlign = TextAlign.Center,
-                        text = "Number " + config.brews[targetIndex.value].number + "\n" + config.brews[targetIndex.value].title()
-                    )
+                    targetIndex.value?.let {
+                        Text(
+                            modifier = Modifier
+                                .padding(vertical = 24.dp),
+                            style = MaterialTheme.typography.h3,
+                            color = Color.White,
+                            textAlign = TextAlign.Center,
+                            text = "Number " + config.brews[it].number + "\n" + config.brews[it].title()
+                        )
+                    }
                 }
             }
 
@@ -98,13 +83,20 @@ class BrewlettePage {
                         .height((metrics.widthPixels * 2).dp)
                         .clipToBounds()
                         .offset(y = metrics.heightPixels.dp / 3.5f)
-                        .scale(3.0f)
-                        .graphicsLayer {
-                            rotationZ = 0 - rotation.value - 90f - (360f / config.brews.size / 2.0f)
-                        },
+                        .scale(3.0f),
                     factory = { context ->
-                        WheelView(context, attrs = null).apply {
+                        val wheel = WheelView(context, attrs = null).apply {
                             addWheelItems(wheelItems)
+                        }
+                        wheel.setWheelListener {
+                            isSpinning.value = false
+                            displayBrewDetail.value = true
+                        }
+                        wheel
+                    },
+                    update = { view ->
+                        targetIndex.value?.let {
+                            view.rotateWheelToTarget(it)
                         }
                     }
                 )
