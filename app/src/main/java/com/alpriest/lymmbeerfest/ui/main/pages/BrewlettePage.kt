@@ -24,6 +24,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.alpriest.lymmbeerfest.R
+import com.alpriest.lymmbeerfest.ui.main.LuckyWheel.LuckyWheel
 import com.alpriest.lymmbeerfest.ui.main.LuckyWheel.WheelItem
 import com.alpriest.lymmbeerfest.ui.main.LuckyWheel.WheelView
 import com.alpriest.lymmbeerfest.ui.main.StyleGuide.Companion.GoldButton
@@ -85,10 +86,10 @@ class BrewlettePage {
                         .offset(y = metrics.heightPixels.dp / 3.5f)
                         .scale(3.0f),
                     factory = { context ->
-                        val wheel = WheelView(context, attrs = null).apply {
+                        val wheel = LuckyWheel(context, attrs = null).apply {
                             addWheelItems(wheelItems)
                         }
-                        wheel.setWheelListener {
+                        wheel.setLuckyWheelReachTheTarget {
                             isSpinning.value = false
                             displayBrewDetail.value = true
                         }
@@ -96,7 +97,7 @@ class BrewlettePage {
                     },
                     update = { view ->
                         targetIndex.value?.let {
-                            view.rotateWheelToTarget(it)
+                            view.rotateWheelTo(it)
                         }
                     }
                 )

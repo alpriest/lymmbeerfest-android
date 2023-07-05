@@ -1,15 +1,13 @@
 package com.alpriest.lymmbeerfest.ui.main.LuckyWheel
 
 import android.content.Context
+import android.graphics.Color
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.widget.FrameLayout
-
 import androidx.annotation.AttrRes
-
 import com.alpriest.lymmbeerfest.R
-import android.graphics.Color
 
 /**
  * Created by mohamed on 22/04/17.
@@ -36,6 +34,14 @@ class LuckyWheel : FrameLayout, View.OnTouchListener {
     constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         initComponent()
         applyAttribute(attrs)
+    }
+
+    fun addWheelItems(wheelItems: List<WheelItem>) {
+        wheelView!!.addWheelItems(wheelItems)
+    }
+
+    fun setLuckyWheelReachTheTarget(onLuckyWheelReachTheTarget: (() -> Unit)) {
+        wheelView!!.setWheelListener(onLuckyWheelReachTheTarget)
     }
 
     private fun initComponent() {
