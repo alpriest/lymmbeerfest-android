@@ -1,6 +1,7 @@
 package com.alpriest.lymmbeerfest.ui.main.pages
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -9,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -83,6 +85,8 @@ class GinPage {
 
     @Composable
     private fun GinRow(modifier: Modifier = Modifier, gin: Gin) {
+        val uriHandler = LocalUriHandler.current
+
         Column(modifier = modifier) {
             Text(
                 text = gin.distiller + ", " + gin.name + " (" + gin.abv + "%)",
@@ -95,7 +99,13 @@ class GinPage {
                     "Sponsored by " + it,
                     color = MaterialTheme.colors.gold(),
                     style = MaterialTheme.typography.caption,
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            gin.sponsorUrl?.let { url ->
+                                uriHandler.openUri(url)
+                            }
+                        }
                 )
             }
         }
@@ -115,15 +125,18 @@ fun Config.Companion.preview(): Config {
         food = "",
         music = ArrayList(),
         brews = listOf(
-            Brew("1",
-            "Something",
-            "BB Brewery",
-            "A beer",
-            "ABC Consulting",
-            1.0,
-            false,
-            false,
-            "#ff0000")
+            Brew(
+                "1",
+                "Something",
+                "BB Brewery",
+                "A beer",
+                "ABC Consulting",
+                1.0,
+                false,
+                false,
+                "https://google.com",
+                "#ff0000"
+            )
         ),
         gins = listOf(
             Gin(
@@ -132,7 +145,8 @@ fun Config.Companion.preview(): Config {
                 name = "Passionfruit & Vanilla",
                 description = "A combination of tangy passion fruit paired with creamy vanilla blossom.",
                 abv = 40.0,
-                sponsor = "ABC Consulting"
+                sponsor = "ABC Consulting",
+                sponsorUrl = "https://google.com"
             )
         ),
         sponsors = Sponsors(

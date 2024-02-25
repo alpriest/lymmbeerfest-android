@@ -3,15 +3,16 @@ package com.alpriest.lymmbeerfest.ui.main
 import android.graphics.Color
 
 class Brew(
-    var number: String,
-    var name: String,
-    var brewery: String,
-    var description: String,
-    var sponsor: String,
-    var abv: Double,
-    var glutenFree: Boolean,
-    var veganFriendly: Boolean,
-    private val colour: String
+    val number: String,
+    val name: String,
+    val brewery: String,
+    val description: String,
+    val sponsor: String,
+    val abv: Double,
+    val glutenFree: Boolean,
+    val veganFriendly: Boolean,
+    val sponsorUrl: String?,
+    val colour: String
 ) {
     fun androidColor(): Int {
         return Color.parseColor("#$colour")
